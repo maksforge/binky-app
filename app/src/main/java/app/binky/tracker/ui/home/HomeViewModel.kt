@@ -90,6 +90,11 @@ data class HomeUiState(
      * *In 3 days*, and reading the clock in a composable would answer differently each recomposition.
      */
     val timelineToday: LocalDate = LocalDate.now(),
+    /**
+     * Whether Home's one tip ask is up (ADR-0011). False wherever Play will not sell a tip, because
+     * nothing is asked that cannot be bought.
+     */
+    val showTipAsk: Boolean = false,
 ) {
     /** An archived bunny is a read-only scope: no write actions (ADR-0015). */
     val readOnly: Boolean get() = selection.readOnlyScope
@@ -114,7 +119,7 @@ class HomeViewModel(
     )
 
     @OptIn(ExperimentalCoroutinesApi::class)
-    val uiState: StateFlow<HomeUiState> =
+    private val bunnies: Flow<HomeUiState> =
         combine(
             container.selectedBunny,
             container.bunnyRepository.activeBunnies,
@@ -153,14 +158,9 @@ class HomeViewModel(
                     timelineToday = timeline.today,
                 )
             }
-        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeUiState())
+        }
 
-    /**
-     * Whether Home's one tip ask is up (ADR-0011). Its own flow rather than a field of [HomeUiState]:
-     * it answers a question about the owner and the app, not about the bunnies on screen, and it
-     * stays false wherever Play will not sell a tip, because nothing is asked that cannot be bought.
-     */
-    val showTipAsk: StateFlow<Boolean> =
+    private val tipAskUp: Flow<Boolean> =
         combine(
             container.preferences.tipAsked,
             container.bunnyRepository.engagement(),
@@ -176,11 +176,17 @@ class HomeViewModel(
                     installedAt = container.installedAt,
                     now = now,
                 )
-        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+        }
+
+    // Kotlin note: `copy()` is `{ ...state, showTipAsk }` — a new immutable value, never a mutation.
+    val uiState: StateFlow<HomeUiState> =
+        combine(bunnies, tipAskUp) { state, showTipAsk -> state.copy(showTipAsk = showTipAsk) }
+            .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeUiState())
 
     init {
-        // Play is asked for prices only once the ask could otherwise be due, so most launches never
-        // bind to it. The unwell check is left to the flow above, which re-reads it on every change.
+        // Prices are asked for only once the ask could otherwise be due. That saves one product
+        // query, not the binding: every foreground binds Play anyway, to settle tips. The unwell
+        // check is left to [tipAskUp], which re-reads it on every change.
         viewModelScope.launch {
             val due =
                 tipAskDue(
