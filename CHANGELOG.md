@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.10.0](https://github.com/srednimax/binky-app/compare/v1.9.1...v1.10.0) (2026-10-11)
+
+
+### Features
+
+* tip the developer through Google Play Billing ([4e7990b](https://github.com/srednimax/binky-app/commit/4e7990bcfdea2d40bd198ffd0b304faad6135e61))
+
+
+### Bug Fixes
+
+* **art:** lay the feature graphic out for the crop Play actually applies ([47567b1](https://github.com/srednimax/binky-app/commit/47567b132fd549fa859fd57714a37b5f064b21de))
+* thank the tip the listener reported, and settle each token once ([9ac0732](https://github.com/srednimax/binky-app/commit/9ac0732db9b86f96b40a3e8fe0ffc1dfc27ca72e))
+
 ## [1.9.1](https://github.com/srednimax/binky-app/compare/v1.9.0...v1.9.1) (2026-08-26)
 
 
