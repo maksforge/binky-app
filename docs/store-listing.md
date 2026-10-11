@@ -1104,16 +1104,9 @@ Stále bez účtu, bez reklam, bez serveru.
 
 ---
 
-## Release notes drafted ahead of their version
+### 1.10.0 — a tip
 
-**The tip's notes, for the release that carries it** (ADR-0011's Play Billing amendment). They sit
-outside *Release notes* on purpose: `notes-gate.py` fails a branch whose newest `### x.y.z` is ahead of
-`versionName`, and `play-whatsnew.py` reads every label up to the next version heading, so a draft
-inside the section would either redden CI or overwrite 1.9.1's text. **When release-please's PR bumps
-`versionName`, move this block under `### <that version>`** at the end of *Release notes* — a move,
-not a rewrite, and the gate then passes.
-
-**Scoped to the release's own change, not a span.** Production carries 1.9.1's span note, so whoever
+**The tip's notes** (ADR-0011's Play Billing amendment). **Scoped to the release's own change, not a span.** Production carries 1.9.1's span note, so whoever
 takes this update has already read everything else. Each locale names the Support screen by the app's
 own `support_title` and says *tip the developer*, never *donate*. Nothing here addresses the reader,
 so the brief's per-locale register has nothing to bind to.
