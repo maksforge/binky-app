@@ -263,6 +263,10 @@
     <string name="home_empty_title">Zatím žádní králíci</string>
     <string name="home_empty_body">Přidej prvního králíka a můžeš začít zapisovat.</string>
     <string name="home_all_bunnies_stub">Klepni na králíka a otevře se.</string>
+    <string name="home_tip_ask_title">Binky je zdarma a zdarma zůstane</string>
+    <string name="home_tip_ask_body">Pokud ti pomáhá starat se o králíky, můžeš vývojáři nechat spropitné. Nic neodemyká a Binky se už znovu nezeptá.</string>
+    <string name="home_tip_ask_accept">Nechat spropitné</string>
+    <string name="home_tip_ask_decline">Ne, děkuji</string>
     <!-- §7.4: *O %1$s* would need the locative of a name the owner typed, so the name goes first
          and the sentence becomes a heading. Polish's shape, for Polish's reason. -->
     <string name="home_about_bunny">%1$s — informace</string>
@@ -1148,7 +1152,11 @@
     <!-- Names the address's position on screen rather than repeating the address. -->
     <string name="support_no_mail_app">V tomhle telefonu není poštovní aplikace. Adresu nahoře jde zkopírovat.</string>
     <string name="support_rate_button">Ohodnotit Binky na Google Play</string>
-    <string name="support_rate_help">Binky je zdarma a bez reklam. Hodnocení je jediné, oč si říká.</string>
+    <string name="support_rate_help">Binky je zdarma a bez reklam. Hodnocení pomáhá dalším chovatelům Binky najít.</string>
+    <string name="support_tip_title">Spropitné pro vývojáře</string>
+    <string name="support_tip_help">Jednorázové spropitné, placené přes Google Play. Nic neodemyká, protože v Binky není nic zamčeného.</string>
+    <string name="support_tip_thanks">Děkuji. Hodně to pro mě znamená.</string>
+    <string name="support_tip_pending">Platba se ještě zpracovává. Google Play ji dokončí.</string>
     <string name="support_no_store_app">Google Play se v tomhle telefonu nepodařilo otevřít.</string>
     <string name="support_privacy_button">Zásady ochrany soukromí</string>
     <string name="support_no_browser">V tomhle telefonu není prohlížeč, který by stránku otevřel.</string>

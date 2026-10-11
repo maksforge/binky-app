@@ -78,6 +78,10 @@
     <string name="home_empty_title">Nie ma jeszcze królików</string>
     <string name="home_empty_body">Dodaj pierwszego królika, żeby zacząć prowadzić zapisy.</string>
     <string name="home_all_bunnies_stub">Dotknij królika, żeby go otworzyć.</string>
+    <string name="home_tip_ask_title">Binky jest darmowe i takie zostanie</string>
+    <string name="home_tip_ask_body">Jeśli pomaga ci opiekować się królikami, możesz zostawić twórcy napiwek. Niczego nie odblokowuje, a Binky więcej o to nie zapyta.</string>
+    <string name="home_tip_ask_accept">Zostaw napiwek</string>
+    <string name="home_tip_ask_decline">Nie, dziękuję</string>
     <!-- Not "O %1$s": after "o" Polish wants the locative, and the app cannot decline a name the
          owner typed. Name first, then the noun, which reads naturally whatever the name is. -->
     <string name="home_about_bunny">%1$s — informacje</string>
@@ -915,7 +919,11 @@
     <string name="support_email_label">Albo napisz na:</string>
     <string name="support_no_mail_app">Brak aplikacji pocztowej na tym telefonie. Adres powyżej można skopiować.</string>
     <string name="support_rate_button">Oceń Binky w Google Play</string>
-    <string name="support_rate_help">Binky jest darmowe i bez reklam. Ocena to jedyna rzecz, o którą prosi.</string>
+    <string name="support_rate_help">Binky jest darmowe i bez reklam. Ocena pomaga innym opiekunom je znaleźć.</string>
+    <string name="support_tip_title">Napiwek dla twórcy</string>
+    <string name="support_tip_help">Jednorazowy napiwek, płatny przez Google Play. Niczego nie odblokowuje, bo w Binky nic nie jest zablokowane.</string>
+    <string name="support_tip_thanks">Dziękuję. To wiele znaczy.</string>
+    <string name="support_tip_pending">Płatność jeszcze się rozlicza. Google Play ją dokończy.</string>
     <string name="support_no_store_app">Nie udało się otworzyć Google Play na tym telefonie.</string>
     <string name="support_privacy_button">Polityka prywatności</string>
     <string name="support_no_browser">Brak przeglądarki na tym telefonie, aby otworzyć stronę.</string>

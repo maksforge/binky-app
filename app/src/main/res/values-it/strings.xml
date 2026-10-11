@@ -223,6 +223,10 @@
     <string name="home_empty_title">Ancora nessun coniglio</string>
     <string name="home_empty_body">Aggiungi il tuo primo coniglio per iniziare a tenerne traccia.</string>
     <string name="home_all_bunnies_stub">Tocca un coniglio per aprirlo.</string>
+    <string name="home_tip_ask_title">Binky è gratis e lo resterà</string>
+    <string name="home_tip_ask_body">Se ti aiuta a prenderti cura dei tuoi conigli, puoi lasciare una mancia allo sviluppatore. Non sblocca nulla, e Binky non te lo chiederà più.</string>
+    <string name="home_tip_ask_accept">Lascia una mancia</string>
+    <string name="home_tip_ask_decline">No, grazie</string>
     <!-- English's own shape survives here: "su" governs nothing the app cannot produce and
          does not elide, so Italian needs neither Polish's reordering nor French's. -->
     <string name="home_about_bunny">Informazioni su %1$s</string>
@@ -1085,7 +1089,11 @@
     <!-- Names the address's position on screen rather than repeating the address -->
     <string name="support_no_mail_app">Su questo telefono non c’è un’app di posta. L’indirizzo qui sopra si può copiare.</string>
     <string name="support_rate_button">Valuta Binky su Google Play</string>
-    <string name="support_rate_help">Binky è gratis e senza pubblicità. Una valutazione è l’unica cosa che chiede.</string>
+    <string name="support_rate_help">Binky è gratis e senza pubblicità. Una valutazione aiuta altri a trovarlo.</string>
+    <string name="support_tip_title">Lascia una mancia allo sviluppatore</string>
+    <string name="support_tip_help">Una mancia una tantum, pagata tramite Google Play. Non sblocca nulla, perché in Binky non c’è niente di bloccato.</string>
+    <string name="support_tip_thanks">Grazie. Significa molto.</string>
+    <string name="support_tip_pending">Il pagamento è ancora in elaborazione. Google Play lo completerà.</string>
     <string name="support_no_store_app">Non è stato possibile aprire Google Play su questo telefono.</string>
     <string name="support_privacy_button">Informativa sulla privacy</string>
     <string name="support_no_browser">Su questo telefono non c’è un browser per aprire la pagina.</string>

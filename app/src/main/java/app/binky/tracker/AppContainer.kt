@@ -1,6 +1,8 @@
 package app.binky.tracker
 
 import android.content.Context
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
@@ -35,6 +37,7 @@ import app.binky.tracker.media.MediaFiles
 import app.binky.tracker.scan.CameraDocumentScanner
 import app.binky.tracker.scan.DocumentScanner
 import app.binky.tracker.scan.MlKitDocumentScanner
+import app.binky.tracker.tip.TipJar
 import app.binky.tracker.work.CareNotifier
 import app.binky.tracker.work.EventNotifier
 import app.binky.tracker.work.ExportNotifier
@@ -51,6 +54,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.time.Instant
 
 /**
  * `internal` rather than private: [BinkyApplication] holds the one [AppPreferences] over this store
@@ -247,6 +251,25 @@ class AppContainer(
      * either path — cancels it.
      */
     val exportNotifier = ExportNotifier(appContext)
+
+    /**
+     * The tip (ADR-0011). Here rather than in a `ViewModel` because a purchase can finish after the
+     * screen that opened Play's sheet is gone, and it still has to be consumed — see [TipJar].
+     */
+    val tipJar = TipJar(appContext, scope)
+
+    /** When this package was first installed on this phone — the tip ask's clock, not a restore's. */
+    val installedAt: Instant by lazy {
+        val packageManager = appContext.packageManager
+        val info =
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                packageManager.getPackageInfo(appContext.packageName, PackageManager.PackageInfoFlags.of(0))
+            } else {
+                @Suppress("DEPRECATION")
+                packageManager.getPackageInfo(appContext.packageName, 0)
+            }
+        Instant.ofEpochMilli(info.firstInstallTime)
+    }
 
     /**
      * The read-only scope onto an archived bunny. In memory only — a background kill must not

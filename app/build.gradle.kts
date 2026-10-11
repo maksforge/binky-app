@@ -356,7 +356,7 @@ licensee {
     // The two that are **not** open-source licences and cannot be bundled: they are Google's terms
     // of service, hosted by Google, and their text is not ours to ship. Their rows link out instead
     // — see `LicencesScreen`. `play-services-base`/`-basement`/`-tasks` come in behind ML Kit
-    // (ADR-0009), which is one more thing that leaves with it if the scanner is ever dropped.
+    // (ADR-0009) and again behind Play Billing, so dropping the scanner alone no longer removes them.
     allowUrl("https://developer.android.com/studio/terms.html") {
         because("Android Software Development Kit License — Google's own terms, not redistributable")
     }
@@ -511,6 +511,12 @@ dependencies {
     // merged `android.hardware.camera` at required="true" would filter the app off every device
     // without a camera on Play — a distribution change no permission list would show.
     implementation(libs.mlkit.document.scanner)
+
+    // The tip (ADR-0011's Play Billing amendment). It brings no permission the scanner has not
+    // already merged except BILLING itself, which `scripts/aab-permissions.py` now expects.
+    implementation(libs.billing.ktx)
+    // Consumes a cleared tip whenever the app comes to the foreground — see BinkyApplication.
+    implementation(libs.androidx.lifecycle.process)
 
     // Navigation
     implementation(libs.androidx.navigation3.ui)

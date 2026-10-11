@@ -471,6 +471,7 @@ private fun AppShell(
                             // already drawn for the bunny on screen, so the id it hands back is the
                             // one whose timeline it slices (ADR-0031).
                             onOpenTimeline = { bunnyId -> backStack.add(Events(bunnyId)) },
+                            onOpenSupport = { backStack.add(Support) },
                         )
                     }
                     entry<Weight> {

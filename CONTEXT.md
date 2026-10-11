@@ -127,3 +127,8 @@ _Avoid_: group, warren, household, cage, hutch
 A soft nutrient-rich dropping a bunny normally eats directly. Seeing them left uneaten is a signal
 worth recording, and they are not the same thing as ordinary droppings.
 _Avoid_: caecotroph, night faeces, soft poop
+
+**Tip**:
+A one-off payment to the developer through Google Play that **unlocks nothing** — every feature is free
+whether or not anyone tips (ADR-0011). Home mentions it once per install; Support offers it for good.
+_Avoid_: donation, support the project, premium, supporter

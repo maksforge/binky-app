@@ -14,10 +14,12 @@ import app.binky.tracker.data.WatchState
 import app.binky.tracker.data.WeightUnit
 import app.binky.tracker.data.evaluateTrend
 import app.binky.tracker.data.growthStageNow
+import app.binky.tracker.data.isActive
 import app.binky.tracker.data.readOnlyScope
 import app.binky.tracker.data.toAcknowledgment
 import app.binky.tracker.data.toWeighing
 import app.binky.tracker.data.watchState
+import app.binky.tracker.tip.tipAskDue
 import app.binky.tracker.ui.bunny.BunnyActions
 import app.binky.tracker.ui.bunny.BunnyDialog
 import app.binky.tracker.ui.bunny.BunnyProfile
@@ -30,6 +32,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.stateIn
@@ -151,6 +154,54 @@ class HomeViewModel(
                 )
             }
         }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), HomeUiState())
+
+    /**
+     * Whether Home's one tip ask is up (ADR-0011). Its own flow rather than a field of [HomeUiState]:
+     * it answers a question about the owner and the app, not about the bunnies on screen, and it
+     * stays false wherever Play will not sell a tip, because nothing is asked that cannot be bought.
+     */
+    val showTipAsk: StateFlow<Boolean> =
+        combine(
+            container.preferences.tipAsked,
+            container.bunnyRepository.engagement(),
+            watches.watches,
+            container.tipJar.offers,
+        ) { asked, engagement, watchRows, offers ->
+            val now = Instant.now()
+            offers.isNotEmpty() &&
+                tipAskDue(
+                    asked = asked,
+                    records = engagement.records,
+                    anyBunnyUnwell = engagement.onCourse || watchRows.any { watchState(it, now).isActive() },
+                    installedAt = container.installedAt,
+                    now = now,
+                )
+        }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    init {
+        // Play is asked for prices only once the ask could otherwise be due, so most launches never
+        // bind to it. The unwell check is left to the flow above, which re-reads it on every change.
+        viewModelScope.launch {
+            val due =
+                tipAskDue(
+                    asked = container.preferences.tipAsked.first(),
+                    records =
+                        container.bunnyRepository
+                            .engagement()
+                            .first()
+                            .records,
+                    anyBunnyUnwell = false,
+                    installedAt = container.installedAt,
+                    now = Instant.now(),
+                )
+            if (due) container.tipJar.refresh()
+        }
+    }
+
+    /** Either answer — *Leave a tip* or *No thanks* — ends the ask for good. */
+    fun answerTipAsk() {
+        viewModelScope.launch { container.preferences.markTipAsked() }
+    }
 
     /**
      * **N series reads and N trend evaluations per emission**, under "All bunnies".

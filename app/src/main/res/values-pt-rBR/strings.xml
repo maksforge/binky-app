@@ -274,6 +274,10 @@
     <string name="home_empty_title">Nenhum coelho ainda</string>
     <string name="home_empty_body">Adicione seu primeiro coelho para começar os registros.</string>
     <string name="home_all_bunnies_stub">Toque em um coelho para abrir.</string>
+    <string name="home_tip_ask_title">O Binky é gratuito e vai continuar assim</string>
+    <string name="home_tip_ask_body">Se ele ajuda você a cuidar dos seus coelhos, você pode deixar uma gorjeta para o desenvolvedor. Ela não desbloqueia nada, e o Binky não vai perguntar de novo.</string>
+    <string name="home_tip_ask_accept">Deixar uma gorjeta</string>
+    <string name="home_tip_ask_decline">Dispensar</string>
     <!-- §7.4 costs Portuguese nothing: "Sobre Alice" is correct as it stands, so this keeps
          English's shape where Polish had to put the name first. See the header for the register
          one step away where it would not have. -->
@@ -1113,7 +1117,11 @@
     <string name="support_email_label">Ou escreva para:</string>
     <string name="support_no_mail_app">Nenhum app de e-mail neste celular. O endereço acima pode ser copiado.</string>
     <string name="support_rate_button">Avaliar o Binky no Google Play</string>
-    <string name="support_rate_help">O Binky é gratuito e sem anúncios. Uma avaliação é a única coisa que ele pede.</string>
+    <string name="support_rate_help">O Binky é gratuito e sem anúncios. Uma avaliação ajuda outras pessoas a encontrá-lo.</string>
+    <string name="support_tip_title">Deixar uma gorjeta para o desenvolvedor</string>
+    <string name="support_tip_help">Uma gorjeta única, paga pelo Google Play. Ela não desbloqueia nada, porque nada no Binky é bloqueado.</string>
+    <string name="support_tip_thanks">Obrigado. Isso significa muito.</string>
+    <string name="support_tip_pending">Seu pagamento ainda está sendo processado. O Google Play vai concluí-lo.</string>
     <string name="support_no_store_app">Não foi possível abrir o Google Play neste celular.</string>
     <string name="support_privacy_button">Política de privacidade</string>
     <string name="support_no_browser">Nenhum navegador neste celular para abrir a página.</string>

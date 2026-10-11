@@ -39,6 +39,7 @@ the *why*, don't restate the line. Prefer explicit and readable over clever.
 | Manual DI via `AppContainer`, **not Hilt** | ~15 screens; constructor injection is clearer and easy to migrate later |
 | WorkManager + exact alarms | Two mechanisms on purpose — ADR-0003 |
 | ML Kit Document Scanner, behind an interface | Needs Play services — ADR-0009. It merges `INTERNET` into the manifest (5g); `scripts/aab-permissions.py` is the record |
+| Play Billing (`tip/`), for the tip only | Unlocks nothing; adds only `BILLING` to the artifact — ADR-0011 |
 | Photo Picker + `TakePicture` intent, **not CameraX** | Far less code; system camera is fine here |
 | Vico charts, Coil 3 images | Compose-native, actively maintained |
 | On-device storage only | No backend, ever. Backup per ADR-0005 |
@@ -118,6 +119,7 @@ app/src/main/java/app/binky/tracker/
   scan/        the document scanner behind ADR-0009's interface: ML Kit's guided one and the
                plain-camera fallback. **Nothing outside this package names ML Kit** — that is what
                keeps "drop the dependency" a one-line change in AppContainer
+  tip/         the tip through Play Billing and the rule for its one ask on Home (ADR-0011)
   ui/          Compose screens + ViewModels, one package per tab
   work/        reminder scheduling and notifications
 

@@ -81,3 +81,52 @@ Two things in this ADR survive it, both stated more strongly than before:
   into each release; the list is gone, but the property it was protecting is untouched and is what the
   privacy policy and the Data safety answer both rest on. Its one qualification is still ML Kit's, exactly
   as described above.
+
+## Amendment (1.10): the tip comes back, through Play Billing
+
+**The owner has decided on the fallback this ADR named**, and it is a different question from the one the
+Phase 6 amendment answered. That amendment was about **leading users to an outside payment page**, which
+Payments §4 forbids; it stands, and there is still no external link anywhere in the app. A one-time
+in-app product sold through **Google Play Billing** is Play's own payment system and needs no exemption at
+all. The Phase 6 amendment did not find it disallowed — it found it not worth its costs. Those costs are
+now accepted, each with what it actually came to:
+
+- **The *In-app purchases* badge** appears on the listing once the products exist. The listing's "no in-app
+  purchases" claim is removed in all nine locales; "free, with no paid tier and nothing locked" stays true.
+- **The two answers in [`play-app-content.md`](../play-app-content.md)** — IARC's "purchase digital goods"
+  and the §7 note that no billing ships — are re-answered there, with the Data safety judgement written down.
+- **The billing library in the manifest** adds exactly one permission to the artifact,
+  `com.android.vending.BILLING`, now expected by `scripts/aab-permissions.py`. Its telemetry dependency
+  merges `INTERNET` and `ACCESS_NETWORK_STATE`, and both were already there — ML Kit's and WorkManager's —
+  so nothing is removed and nothing new is claimed. A purchase is an IPC call to the Play Store app,
+  which does the networking in its own process: **the app's own code still makes no network requests.**
+
+### What ships
+
+- **Four consumable one-time products**, `tip_small`, `tip_medium`, `tip_large` and `tip_xlarge`, at 5,
+  10, 20 and 50 PLN, each with Play's multi-quantity on; Play converts each for other countries. The
+  buttons wrap, so four prices fit a narrow phone. The app never states a price of its own — it shows Play's
+  `formattedPrice` — and shows no tip at all where Play returns no products: no Play, the debug
+  `applicationId`, or products not yet created in the Console.
+- **Every purchase is consumed, on every foreground.** Consuming is what lets the same tip be given twice,
+  and it also satisfies Play's three-day acknowledgement rule — Play refunds anything not acknowledged by
+  then. So owned purchases are settled whenever the app comes to the foreground, not only when Support
+  is open: a payment that clears while the app is closed, or one caught by a process death, is consumed
+  the next time the owner opens it. One consume covers a purchase's whole quantity. There is no
+  entitlement to keep, so nothing about a purchase is ever stored.
+- **The permanent entry is a card on Support**, not in Settings: Support is the app's only About-shaped
+  screen, and it already carries the rating.
+- **The one ask is a card on Home**, revived from this ADR's original section with its rules intact:
+  once per install, after **30 days installed** (`firstInstallTime`) **and ten weighings plus
+  observations** across every bunny, never while an active bunny is under a watch or on a medication
+  course, never in an archived scope, and only where Play will sell a tip. *Leave a tip* and *No thanks*
+  both end it. The answered flag lives in preferences, not the database, for the reason given under
+  *Consequences* above.
+- **The wording is "tip the developer"**, never "donate" or "support the project" — it is a payment to a
+  person and buys nothing, and CONTEXT.md now carries **Tip** as a term.
+
+### What stays dead
+
+**The supporter credits list.** Nobody opts into being named through a Play purchase, and fetching a
+list would break the property this ADR was most careful to protect. And **nothing a tip could unlock will ever
+exist**: every feature ships to everyone.

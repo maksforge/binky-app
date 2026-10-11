@@ -102,7 +102,7 @@ Binky: Bunny & Rabbit Tracker
 Track your rabbit's weight, health and care. Private, offline, no ads.
 ```
 
-### Full description — 3628/4000
+### Full description — 3607/4000
 
 ```
 Binky keeps a trustworthy record of your rabbit's health, so you and your vet can see what actually changed, and when.
@@ -145,7 +145,7 @@ A gallery for each rabbit, for pictures kept simply because you want them.
 
 YOUR DATA STAYS YOURS
 • No account, no sign-up, no server. There is no backend to send anything to
-• No ads, no tracking, no analytics, no in-app purchases
+• No ads, no tracking, no analytics
 • Works fully offline, permanently
 • Export a backup whenever you want and restore it. Your records are portable, not trapped
 • Free, with no paid tier and nothing locked
@@ -172,7 +172,7 @@ Binky: Zdrowie Królika
 Dzienniczek zdrowia królika: waga, obserwacje, bobki. Offline, bez reklam.
 ```
 
-### Full description — 3681/4000
+### Full description — 3656/4000
 
 ```
 Binky prowadzi wiarygodny dziennik zdrowia Twojego królika, żeby razem z weterynarzem było widać to, co naprawdę się zmieniło i kiedy.
@@ -215,7 +215,7 @@ Galeria dla każdego królika, na zdjęcia trzymane po prostu dlatego, że się 
 
 TWOJE DANE ZOSTAJĄ U CIEBIE
 • Bez konta, bez rejestracji, bez serwera. Nie ma dokąd wysyłać danych
-• Bez reklam, bez śledzenia, bez analityki, bez zakupów w aplikacji
+• Bez reklam, bez śledzenia, bez analityki
 • Działa w pełni offline, na stałe
 • Kopię zapasową można wyeksportować w dowolnej chwili i przywrócić. Zapisy są przenośne, nie uwięzione
 • Za darmo, bez wersji płatnej i bez blokad
@@ -242,7 +242,7 @@ Binky: Kaninchen-Gesundheit
 Gewicht, Gesundheit und Pflege des Kaninchens. Offline, ohne Werbung.
 ```
 
-### Full description — 3901/4000
+### Full description — 3881/4000
 
 ```
 Binky führt ein verlässliches Gesundheitstagebuch für das Kaninchen, damit in der Tierarztpraxis zu sehen ist, was sich wirklich geändert hat und wann.
@@ -285,7 +285,7 @@ Eine Galerie je Kaninchen, für Bilder, die einfach bleiben sollen.
 
 DIE DATEN BLEIBEN AUF DEM GERÄT
 • Kein Konto, keine Anmeldung, kein Server. Es gibt nichts, wohin Daten gesendet würden
-• Keine Werbung, kein Tracking, keine Analyse, keine In-App-Käufe
+• Keine Werbung, kein Tracking, keine Analyse
 • Dauerhaft vollständig offline
 • Eine Sicherung lässt sich jederzeit exportieren und wieder einspielen. Die Einträge sind mitnehmbar, nicht eingesperrt
 • Kostenlos, ohne Bezahlversion und ohne Sperren
@@ -312,7 +312,7 @@ Binky: Salud del Conejo
 Peso, salud y cuidados del conejo. Sin conexión, sin anuncios, gratis.
 ```
 
-### Full description — 3932/4000
+### Full description — 3895/4000
 
 ```
 Binky lleva un registro fiable de la salud del conejo, para que en la consulta veterinaria se vea qué cambió de verdad y cuándo.
@@ -355,7 +355,7 @@ Una galería por conejo, para fotos que se guardan simplemente porque sí.
 
 LOS DATOS SE QUEDAN EN EL MÓVIL
 • Sin cuenta, sin registro, sin servidor. No hay ningún sitio al que enviar nada
-• Sin anuncios, sin rastreo, sin analítica, sin compras dentro de la aplicación
+• Sin anuncios, sin rastreo, sin analítica
 • Funciona totalmente sin conexión, siempre
 • La copia de seguridad se exporta cuando se quiera y se restaura. Los registros son portátiles, no quedan atrapados
 • Gratis, sin versión de pago y sin nada bloqueado
@@ -382,7 +382,7 @@ Binky : Santé du Lapin
 Poids, santé et soins du lapin. Hors ligne, sans publicité, gratuit.
 ```
 
-### Full description — 3992/4000
+### Full description — 3971/4000
 
 ```
 Binky tient un carnet de santé fiable pour le lapin, afin que le vétérinaire voie ce qui a réellement changé, et quand.
@@ -425,7 +425,7 @@ Une galerie par lapin, pour des images gardées simplement pour le plaisir.
 
 LES DONNÉES RESTENT SUR LE TÉLÉPHONE
 • Aucun compte, aucune inscription, aucun serveur. Rien n’est envoyé nulle part
-• Aucune publicité, aucun pistage, aucune analyse, aucun achat intégré
+• Aucune publicité, aucun pistage, aucune analyse
 • Fonctionne entièrement hors ligne, en permanence
 • Une sauvegarde s’exporte quand on veut et se restaure. Les entrées sont transportables, pas enfermées
 • Gratuit, sans version payante et sans rien de verrouillé
@@ -452,7 +452,7 @@ Binky: Salute del Coniglio
 Peso, salute e cure del coniglio. Offline, senza pubblicità, gratis.
 ```
 
-### Full description — 3993/4000
+### Full description — 3969/4000
 
 ```
 Binky tiene un registro affidabile della salute del coniglio, così in ambulatorio si vede che cosa è cambiato davvero, e quando.
@@ -495,7 +495,7 @@ Una galleria per ogni coniglio, per immagini tenute semplicemente perché si vuo
 
 I DATI RESTANO SUL TELEFONO
 • Nessun account, nessuna registrazione, nessun server. Non c'è nessun posto a cui mandare qualcosa
-• Nessuna pubblicità, nessun tracciamento, nessuna analisi, nessun acquisto in-app
+• Nessuna pubblicità, nessun tracciamento, nessuna analisi
 • Funziona completamente offline, sempre
 • Un backup si esporta quando si vuole e si ripristina. Le voci sono trasportabili, non intrappolate
 • Gratis, senza versione a pagamento e senza nulla di bloccato
@@ -522,7 +522,7 @@ Binky: Saúde do Coelho
 Peso, saúde e cuidados do coelho. Offline, sem anúncios, de graça.
 ```
 
-### Full description — 3855/4000
+### Full description — 3828/4000
 
 ```
 O Binky mantém um registro confiável da saúde do coelho, para que na consulta dê para ver o que mudou de verdade, e quando.
@@ -565,7 +565,7 @@ Uma galeria para cada coelho, para fotos guardadas simplesmente porque se quer.
 
 OS DADOS FICAM NO CELULAR
 • Sem conta, sem cadastro, sem servidor. Não existe para onde mandar nada
-• Sem anúncios, sem rastreamento, sem análise de uso, sem compras dentro do app
+• Sem anúncios, sem rastreamento, sem análise de uso
 • Funciona totalmente offline, sempre
 • O backup se exporta quando se quiser e se restaura. Os registros são portáteis, não ficam presos
 • De graça, sem versão paga e sem nada bloqueado
@@ -592,7 +592,7 @@ Binky: Zdraví králíka
 Váha, zdraví a péče o králíka. Offline, bez reklam, zdarma.
 ```
 
-### Full description — 3458/4000
+### Full description — 3435/4000
 
 ```
 Binky vede spolehlivý zápis o zdraví králíka, aby bylo na veterině vidět, co se doopravdy změnilo a kdy.
@@ -635,7 +635,7 @@ Galerie pro každého králíka, na fotky držené prostě proto, že se chce.
 
 DATA ZŮSTÁVAJÍ V TELEFONU
 • Bez účtu, bez registrace, bez serveru. Není kam cokoli posílat
-• Bez reklam, bez sledování, bez analytiky, bez nákupů v aplikaci
+• Bez reklam, bez sledování, bez analytiky
 • Funguje zcela offline, trvale
 • Zálohu lze kdykoli vyexportovat a zase obnovit. Záznamy jsou přenosné, ne uvězněné
 • Zdarma, bez placené verze a bez zámků
@@ -662,7 +662,7 @@ Binky: Здоровʼя кролика
 Вага, здоровʼя та догляд за кроликом. Офлайн, без реклами, безкоштовно.
 ```
 
-### Full description — 3540/4000
+### Full description — 3514/4000
 
 ```
 Binky веде надійний запис про здоровʼя кролика, щоб у ветеринара було видно, що саме змінилося і коли.
@@ -705,7 +705,7 @@ Binky веде надійний запис про здоровʼя кролик�
 
 ДАНІ ЛИШАЮТЬСЯ В ТЕЛЕФОНІ
 • Без облікового запису, без реєстрації, без сервера. Немає куди щось надсилати
-• Без реклами, без стеження, без аналітики, без покупок у застосунку
+• Без реклами, без стеження, без аналітики
 • Працює повністю офлайн, постійно
 • Резервну копію можна експортувати будь-коли й відновити. Записи переносні, а не замкнені
 • Безкоштовно, без платної версії та без замків
@@ -1098,6 +1098,94 @@ Stále bez účtu, bez reklam, bez serveru.
 • Вага у грамах або кілограмах; зміни позначені
 • Котяхи: усі форми, які є в лотку, і фото
 • Новий вигляд, світлий або темний; Material You за бажанням
+
+Досі без облікового запису, без реклами, без сервера.
+```
+
+---
+
+## Release notes drafted ahead of their version
+
+**The tip's notes, for the release that carries it** (ADR-0011's Play Billing amendment). They sit
+outside *Release notes* on purpose: `notes-gate.py` fails a branch whose newest `### x.y.z` is ahead of
+`versionName`, and `play-whatsnew.py` reads every label up to the next version heading, so a draft
+inside the section would either redden CI or overwrite 1.9.1's text. **When release-please's PR bumps
+`versionName`, move this block under `### <that version>`** at the end of *Release notes* — a move,
+not a rewrite, and the gate then passes.
+
+**Scoped to the release's own change, not a span.** Production carries 1.9.1's span note, so whoever
+takes this update has already read everything else. Each locale names the Support screen by the app's
+own `support_title` and says *tip the developer*, never *donate*. Nothing here addresses the reader,
+so the brief's per-locale register has nothing to bind to.
+
+**English** — 197/500:
+
+```
+• Support now offers a way to tip the developer through Google Play. It is optional and one-off, and it unlocks nothing: every feature stays free for everyone.
+
+Still no account, no ads, no server.
+```
+
+**Polish** — 223/500:
+
+```
+• Na ekranie Wsparcie można teraz zostawić twórcy napiwek przez Google Play. Jest dobrowolny i jednorazowy, i niczego nie odblokowuje: każda funkcja zostaje darmowa dla wszystkich.
+
+Nadal bez konta, bez reklam, bez serwera.
+```
+
+**German** — 211/500:
+
+```
+• Neu unter Support: dem Entwickler ein Trinkgeld über Google Play geben. Freiwillig, einmalig und ohne Gegenleistung — jede Funktion bleibt für alle kostenlos.
+
+Weiterhin kein Konto, keine Werbung, kein Server.
+```
+
+**Spanish** — 216/500:
+
+```
+• Nuevo en Soporte: dejar una propina al desarrollador a través de Google Play. Es opcional y única, y no desbloquea nada: todas las funciones siguen gratis para todos.
+
+Sigue sin cuenta, sin anuncios y sin servidor.
+```
+
+**French** — 221/500:
+
+```
+• Nouveau dans Assistance : laisser un pourboire au développeur via Google Play. Facultatif et unique, il ne débloque rien : toutes les fonctions restent gratuites pour tous.
+
+Toujours sans compte, sans pub, sans serveur.
+```
+
+**Italian** — 224/500:
+
+```
+• Novità in Assistenza: lasciare una mancia allo sviluppatore tramite Google Play. È facoltativa e una tantum, e non sblocca nulla: ogni funzione resta gratis per tutti.
+
+Sempre senza account, senza pubblicità, senza server.
+```
+
+**Brazilian Portuguese** — 220/500:
+
+```
+• Novo em Suporte: deixar uma gorjeta para o desenvolvedor pelo Google Play. É opcional e única, e não desbloqueia nada: todos os recursos continuam gratuitos para todos.
+
+Continua sem conta, sem anúncios e sem servidor.
+```
+
+**Czech** — 190/500:
+
+```
+• Nově v Podpoře: spropitné pro vývojáře přes Google Play. Je dobrovolné a jednorázové a nic neodemyká: všechny funkce zůstávají zdarma pro všechny.
+
+Stále bez účtu, bez reklam, bez serveru.
+```
+
+**Ukrainian** — 215/500:
+
+```
+• Нове в Підтримці: чайові розробникові через Google Play. Вони добровільні й одноразові та нічого не відкривають: усі функції лишаються безкоштовними для всіх.
 
 Досі без облікового запису, без реклами, без сервера.
 ```

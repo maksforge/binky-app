@@ -78,3 +78,12 @@ the short list below of things that are open without being a phase.
   already registered and has not confirmed it in the Console; confirming is the whole task. The other
   deadline Play surfaced — the target-API requirement on 31 Aug 2026 — is already satisfied, because
   `targetSdk` is 36.
+- **The tip has no products yet** (ADR-0011's Play Billing amendment). Play Console refuses to create
+  in-app products until a build carrying the billing library is on a track, so the order is fixed:
+  upload the release with the tip to **internal**, then *Monetize with Play → Products → One-time products* →
+  `tip_small`, `tip_medium`, `tip_large`, `tip_xlarge` at 5 / 10 / 20 / 50 PLN, consumable, with
+  multi-quantity switched on, and activate them. Until then
+  Play returns nothing and the app shows no tip anywhere, which is the intended fallback. Then tip once
+  from the internal build as a licence tester, and re-submit the IARC questionnaire and Data safety per
+  [`play-app-content.md`](play-app-content.md). The 1.10 notes are drafted in
+  [`store-listing.md`](store-listing.md) and move under the version heading on release-please's PR.

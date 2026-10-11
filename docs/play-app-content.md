@@ -151,6 +151,21 @@ at all. Measured at 5g, the dependency also costs **+534 KB** of AAB (11,404,302
   reason as much as for the UX one — importing from the gallery is the Photo Picker's job elsewhere
   in this app.
 
+### 1.10 declares nine permissions: the tip's `BILLING`
+
+Written for the tip (ADR-0011's Play Billing amendment) and read out of a locally built release bundle
+with `scripts/aab-permissions.py`, not out of the source. **⚠ Re-run it on the uploaded 1.10 bundle**
+before calling this confirmed, as 5j did for 1.2.
+
+| Permission | Ours? | Why, and what it changes on the Console |
+| --- | --- | --- |
+| `com.android.vending.BILLING` | **no — Play Billing Library** | Lets the app bind to the Play Store app's billing service. Normal, install-time, no dialog, not a Play sensitive permission, no declaration form, and it carries no user data. |
+
+**Nothing else moved.** Billing's `datatransport` dependency merges `INTERNET` and
+`ACCESS_NETWORK_STATE`, both already present for ML Kit and WorkManager, so the set grows by one. No
+`AD_ID`, no `CAMERA`, no `<uses-feature>` — the four forbidden entries are still absent. A purchase is an
+IPC call to the Play Store app, which does its own networking; the app's code still opens no socket.
+
 ---
 
 ## 1. Privacy policy
@@ -187,7 +202,7 @@ The three that are worth reading twice, because they are about *plumbing* rather
 | --- | --- | --- |
 | Does the app allow users to interact or exchange content with each other? | **No** | There is no server and no other user to interact with. |
 | Does the app share the user's location with other users? | **No** | No location is collected at all. |
-| Does the app allow users to purchase digital goods? | **No** | Free, no tier, nothing locked. |
+| Does the app allow users to purchase digital goods? | **Yes** (from 1.10) | ⚠ A tip is a one-time in-app product, so the honest answer moved. It buys nothing: no tier, nothing locked (ADR-0011). Re-submit the questionnaire when 1.10 ships; the expected rating does not change. |
 
 The export-a-backup feature is **not** user-to-user sharing: it hands a file to the system share
 sheet at the moment the owner asks, to a destination they pick. That is the OS's sharing, not the
@@ -270,9 +285,23 @@ So the headline answer is unchanged and the Data safety form gains **no** data t
 Play's per-app contact email in *Store settings*, so the app, the listing and the privacy policy resolve
 to one inbox rather than three claims.
 
-**No** In-App Review, Play Billing or donation link ships with it either (Play Payments §3/§4), so §3
-*Ads*, §9 *Financial features* and §4's "purchase digital goods" answer are all untouched — see
-[`phase-6.md`](phase-6.md) for why the donation link was declined rather than forgotten.
+**No** In-App Review or donation link ships with it either (Play Payments §3/§4) — see
+[`phase-6.md`](phase-6.md) for why the donation link was declined rather than forgotten. *(Play Billing
+arrives at 1.10 for the tip, and is the section below.)*
+
+#### ⚠ 1.10 sells a tip through Play Billing, and the answer stays **No** — the judgement
+
+ADR-0011's Play Billing amendment adds four consumable one-time products. The payment is between the
+owner and Google Play: Play's own sheet takes the payment details, and the app never sees them. What the
+app's code receives is a purchase token and a product id, which it hands straight back to Play to
+consume — it stores neither and sends neither anywhere. Play's purchase records are Google's, collected
+by the Play Store under Google's privacy policy, which is how the privacy policy words it.
+
+So no data type is added. **Read the Console's help text on Play Billing before submitting**, and if it
+asks for *Purchase history* to be declared for apps using Play Billing, declare it as collected by Google
+Play, not shared, not used for anything else, and update the privacy policy's *Google Play* paragraph in
+the same commit. §9 *Financial features* is unchanged — a tip is an in-app purchase, not a financial
+feature.
 
 #### The advertising-ID answer has an expiry date
 
@@ -355,7 +384,8 @@ rather than an intention, which is the state Play's cross-check wants it in.
 
 > **My app doesn't provide any financial features.**
 
-No payments, no lending, no crypto, no IAP.
+No lending, no crypto, no payments between users. The tip (1.10) is a one-time in-app product sold
+through Play Billing, which this section does not cover.
 
 ## 10. Health apps
 

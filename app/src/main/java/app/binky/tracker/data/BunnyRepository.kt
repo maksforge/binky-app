@@ -4,6 +4,7 @@ import androidx.room.withTransaction
 import app.binky.tracker.media.MediaFiles
 import kotlinx.coroutines.flow.Flow
 import java.time.Instant
+import java.time.LocalDate
 
 /**
  * Reads and writes bunnies. Thin over the DAO, and the owner of the things a DAO cannot own: the
@@ -157,4 +158,6 @@ class BunnyRepository(
     /** What deleting this bunny would destroy, for the confirmation (ADR-0004). */
     suspend fun recordCounts(id: String): RecordCounts =
         bunnyDao.recordCounts(id) ?: RecordCounts(soleOwnedRecords = 0, sharedRecords = 0)
+
+    fun engagement(today: LocalDate = LocalDate.now()): Flow<EngagementFacts> = bunnyDao.engagement(today)
 }
