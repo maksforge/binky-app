@@ -92,10 +92,29 @@ fun HomeScreen(
     onSelectBunny: (String) -> Unit,
     onOpenHousemate: (Housemate) -> Unit,
     onOpenTimeline: (String) -> Unit,
+    onOpenSupport: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val viewModel: HomeViewModel = viewModel(factory = HomeViewModel.Factory, extras = appViewModelExtras())
     val state by viewModel.uiState.collectAsStateWithLifecycle()
+    val showTipAsk by viewModel.showTipAsk.collectAsStateWithLifecycle()
+
+    // Kotlin note: a nullable composable lambda is a slot that may be empty — the `{ cond && <X/> }`
+    // of JSX, passed down so each shape of Home decides where it sits. Never in an archived scope.
+    val tipAsk: (@Composable () -> Unit)? =
+        if (showTipAsk && !state.readOnly) {
+            {
+                TipAskCard(
+                    onTip = {
+                        viewModel.answerTipAsk()
+                        onOpenSupport()
+                    },
+                    onDecline = viewModel::answerTipAsk,
+                )
+            }
+        } else {
+            null
+        }
 
     when (state.selection) {
         // Momentary, before the first database and preferences emissions arrive. Rendering nothing
@@ -110,6 +129,7 @@ fun HomeScreen(
                 onAcknowledge = viewModel::acknowledge,
                 onStartWatch = viewModel::startWatch,
                 onCloseWatch = viewModel::closeWatch,
+                tipAsk = tipAsk,
                 modifier = modifier,
             )
         else ->
@@ -129,6 +149,7 @@ fun HomeScreen(
                     onAcknowledge = { viewModel.acknowledge(profile.id) },
                     onStartWatch = { duration -> viewModel.startWatch(profile.id, duration) },
                     onCloseWatch = { viewModel.closeWatch(profile.id) },
+                    tipAsk = tipAsk,
                     modifier = modifier,
                 )
             }
@@ -200,6 +221,7 @@ private fun OneBunny(
     onAcknowledge: () -> Unit,
     onStartWatch: (WatchDuration) -> Unit,
     onCloseWatch: () -> Unit,
+    tipAsk: (@Composable () -> Unit)?,
     modifier: Modifier = Modifier,
 ) {
     // Both are decided here rather than inside the two composables that render them, because the
@@ -323,6 +345,11 @@ private fun OneBunny(
                     Text(stringResource(R.string.action_delete))
                 }
             }
+        }
+
+        if (tipAsk != null) {
+            Spacer(Modifier.height(Spacing.section))
+            tipAsk()
         }
     }
 
@@ -518,6 +545,7 @@ private fun AllBunnies(
     onAcknowledge: (String) -> Unit,
     onStartWatch: (String, WatchDuration) -> Unit,
     onCloseWatch: (String) -> Unit,
+    tipAsk: (@Composable () -> Unit)?,
     modifier: Modifier = Modifier,
 ) {
     LazyColumn(
@@ -547,6 +575,40 @@ private fun AllBunnies(
                 onStartWatch = { duration -> onStartWatch(profile.id, duration) },
                 onCloseWatch = { onCloseWatch(profile.id) },
             )
+        }
+        if (tipAsk != null) {
+            item {
+                Spacer(Modifier.height(Spacing.block))
+                tipAsk()
+            }
+        }
+    }
+}
+
+/**
+ * The one time Binky mentions the tip unasked (ADR-0011). Either button answers it for good, and
+ * nothing here says what a tip buys, because it buys nothing.
+ */
+@Composable
+private fun TipAskCard(
+    onTip: () -> Unit,
+    onDecline: () -> Unit,
+) {
+    GroupedCard(contentPadding = PaddingValues(Spacing.base)) {
+        Text(
+            text = stringResource(R.string.home_tip_ask_title),
+            style = MaterialTheme.typography.titleSmall,
+        )
+        Spacer(Modifier.height(Spacing.hair))
+        Text(
+            text = stringResource(R.string.home_tip_ask_body),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(Spacing.tight))
+        Row(horizontalArrangement = Arrangement.spacedBy(Spacing.tight)) {
+            TextButton(onClick = onTip) { Text(stringResource(R.string.home_tip_ask_accept)) }
+            TextButton(onClick = onDecline) { Text(stringResource(R.string.home_tip_ask_decline)) }
         }
     }
 }

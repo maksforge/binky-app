@@ -6,6 +6,7 @@ import androidx.room.Query
 import androidx.room.Update
 import kotlinx.coroutines.flow.Flow
 import java.time.Instant
+import java.time.LocalDate
 
 /**
  * What deleting a bunny would destroy, in the two buckets ADR-0004 requires: records **solely**
@@ -18,6 +19,15 @@ import java.time.Instant
 data class RecordCounts(
     val soleOwnedRecords: Int,
     val sharedRecords: Int,
+)
+
+/**
+ * What the tip's one ask is gated on (ADR-0011): how much the owner has recorded, and whether any
+ * active bunny is on a medication course today.
+ */
+data class EngagementFacts(
+    val records: Int,
+    val onCourse: Boolean,
 )
 
 /**
@@ -151,6 +161,22 @@ interface BunnyDao {
         """,
     )
     suspend fun recordCounts(bunnyId: String): RecordCounts?
+
+    /** Weighings and observations across every bunny, archived ones included: what the owner did. */
+    @Query(
+        """
+        SELECT
+            (SELECT COUNT(*) FROM weights) + (SELECT COUNT(*) FROM observations) AS records,
+            EXISTS (
+                SELECT 1 FROM medication_courses c
+                JOIN bunnies b ON b.id = c.bunnyId
+                WHERE b.archivedAt IS NULL
+                  AND c.startOn <= :today
+                  AND (c.endOn IS NULL OR c.endOn >= :today)
+            ) AS onCourse
+        """,
+    )
+    fun engagement(today: LocalDate): Flow<EngagementFacts>
 
     @Insert
     suspend fun insert(bunny: BunnyEntity)

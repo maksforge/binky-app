@@ -62,6 +62,11 @@
     <string name="home_empty_title">No bunnies yet</string>
     <string name="home_empty_body">Add your first bunny to start keeping records.</string>
     <string name="home_all_bunnies_stub">Tap a bunny to open it.</string>
+    <!-- The tip's one ask on Home (ADR-0011): once per install, then never again -->
+    <string name="home_tip_ask_title">Binky is free, and stays free</string>
+    <string name="home_tip_ask_body">If it helps you look after your bunnies, you can leave the developer a tip. It unlocks nothing, and Binky will not ask again.</string>
+    <string name="home_tip_ask_accept">Leave a tip</string>
+    <string name="home_tip_ask_decline">No thanks</string>
     <!-- Section header over the facts card on Home. Takes the bunny's name; see the Polish, which
          has to put the name first because "o" governs the locative and a name the owner typed
          cannot be declined by the app. -->
@@ -986,7 +991,13 @@
          and the text above it cannot disagree after an edit to one of them -->
     <string name="support_no_mail_app">No mail app on this phone. The address above can be copied.</string>
     <string name="support_rate_button">Rate Binky on Google Play</string>
-    <string name="support_rate_help">Binky is free and ad-free. A rating is the only thing it asks for.</string>
+    <string name="support_rate_help">Binky is free and ad-free. A rating helps other owners find it.</string>
+    <!-- The tip (ADR-0011): a payment to the developer that unlocks nothing. Never "donate" or
+         "support the project". The buttons are Play's own formatted prices, not strings -->
+    <string name="support_tip_title">Tip the developer</string>
+    <string name="support_tip_help">A one-off tip, paid through Google Play. It unlocks nothing, because nothing in Binky is locked.</string>
+    <string name="support_tip_thanks">Thank you. It means a lot.</string>
+    <string name="support_tip_pending">Your payment is still being processed. Google Play will finish it.</string>
     <string name="support_no_store_app">Google Play could not be opened on this phone.</string>
     <string name="support_privacy_button">Privacy policy</string>
     <string name="support_no_browser">No browser on this phone to open the page.</string>

@@ -66,6 +66,8 @@ enum class ThemeMode { SYSTEM, LIGHT, DARK }
  * earlier still — synchronously, before the first Activity exists — for the reason
  * [themeModeAtStartup] gives.
  *
+ * **1.10 adds one more**: whether the tip's one ask on Home has been answered (ADR-0011).
+ *
  * These **travel in every export scope, from Essential upward** (ADR-0005). They are a few hundred
  * bytes, and a restored phone that has forgotten its display unit, its selected bunny and its chosen
  * backup scope does not read as missing data — it reads as bugs.
@@ -360,6 +362,20 @@ class AppPreferences(
      */
     fun themeModeAtStartup(): ThemeMode = runBlocking { themeMode.first() }
 
+    /**
+     * Whether Home's one tip ask has been answered, either way (ADR-0011). Here rather than in the
+     * database so a wipe cannot resurrect it, and restored with everything else, so an owner who has
+     * answered is not asked again on their next phone.
+     */
+    val tipAsked: Flow<Boolean> =
+        dataStore.data
+            .catch { cause -> if (cause is IOException) emit(emptyPreferences()) else throw cause }
+            .map { preferences -> preferences[TIP_ASKED] == true }
+
+    suspend fun markTipAsked() {
+        dataStore.edit { preferences -> preferences[TIP_ASKED] = true }
+    }
+
     suspend fun setSelection(selection: StoredSelection) {
         dataStore.edit { preferences ->
             when (selection) {
@@ -397,6 +413,7 @@ class AppPreferences(
         val EXPORT_REMINDER_NOTIFIED_FOR = stringPreferencesKey("export_reminder_notified_for")
         val MATERIAL_YOU = booleanPreferencesKey("material_you")
         val THEME_MODE = stringPreferencesKey("theme_mode")
+        val TIP_ASKED = booleanPreferencesKey("tip_asked")
 
         /** `HH:mm`, so a stored time is readable in a `.preferences_pb` dump and in a backup. */
         val REMINDER_TIME_FORMAT: DateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm")

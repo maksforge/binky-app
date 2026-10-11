@@ -5,7 +5,7 @@ title: Privacy Policy — Binky
 
 # Privacy Policy — Binky
 
-_Last updated: 6 August 2026_
+_Last updated: 11 October 2026_
 
 Binky is an Android app for keeping track of a pet rabbit's health. This policy describes what the
 app does with the information you put into it. It is short because the app does very little.
@@ -23,7 +23,7 @@ device**, and is readable only by the app.
 No analytics. No advertising. No crash-reporting SDK. No third-party trackers of any kind. **The app's
 own code makes no network requests at all**, and nothing you record is ever sent anywhere.
 
-Three things happen outside the app that are worth naming, because they are the operating system's or
+Four things happen outside the app that are worth naming, because they are the operating system's or
 Google's doing rather than ours:
 
 - **Android Auto Backup.** If you have backup enabled on your device with a Google account signed in,
@@ -33,6 +33,9 @@ Google's doing rather than ours:
 - **Google Play.** If you installed the app from Google Play, Play collects its own installation and
   crash-diagnostic information under Google's privacy policy. This is collected by the Play Store and the
   operating system, not by the app.
+- **Tips.** The Support screen offers an optional tip to the developer, paid through Google Play. Google
+  Play takes and processes the payment under Google's privacy policy; **the app never sees your payment
+  details**, learns nothing about you from a tip, and stores nothing about it. A tip unlocks nothing.
 - **The document scanner.** Scanning a document uses Google's on-device scanner, which is part of Google
   Play services. Because that component is bundled with the app, the app's installation listing shows a
   network permission that Google's component brings with it. **The scanner does not receive any of your

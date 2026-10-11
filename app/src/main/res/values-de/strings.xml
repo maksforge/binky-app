@@ -94,6 +94,10 @@
     <string name="home_empty_title">Noch keine Kaninchen</string>
     <string name="home_empty_body">Füge dein erstes Kaninchen hinzu, um mit den Aufzeichnungen zu beginnen.</string>
     <string name="home_all_bunnies_stub">Tippe ein Kaninchen an, um es zu öffnen.</string>
+    <string name="home_tip_ask_title">Binky ist kostenlos und bleibt es</string>
+    <string name="home_tip_ask_body">Wenn Binky dir bei der Pflege deiner Kaninchen hilft, kannst du dem Entwickler ein Trinkgeld geben. Es schaltet nichts frei, und Binky fragt nicht noch einmal.</string>
+    <string name="home_tip_ask_accept">Trinkgeld geben</string>
+    <string name="home_tip_ask_decline">Nein, danke</string>
     <!-- §7.4 does not bite here: "über" takes the accusative and a German name does not decline
          in it, so the name can stay where the English puts it. -->
     <string name="home_about_bunny">Über %1$s</string>
@@ -881,7 +885,11 @@
     <string name="support_email_label">Oder schreib an:</string>
     <string name="support_no_mail_app">Keine Mail-App auf diesem Handy. Die Adresse oben lässt sich kopieren.</string>
     <string name="support_rate_button">Binky bei Google Play bewerten</string>
-    <string name="support_rate_help">Binky ist kostenlos und werbefrei. Eine Bewertung ist das Einzige, worum es bittet.</string>
+    <string name="support_rate_help">Binky ist kostenlos und werbefrei. Eine Bewertung hilft anderen, es zu finden.</string>
+    <string name="support_tip_title">Dem Entwickler ein Trinkgeld geben</string>
+    <string name="support_tip_help">Ein einmaliges Trinkgeld, bezahlt über Google Play. Es schaltet nichts frei, denn in Binky ist nichts gesperrt.</string>
+    <string name="support_tip_thanks">Danke. Das bedeutet mir viel.</string>
+    <string name="support_tip_pending">Deine Zahlung wird noch bearbeitet. Google Play schließt sie ab.</string>
     <string name="support_no_store_app">Google Play ließ sich auf diesem Handy nicht öffnen.</string>
     <string name="support_privacy_button">Datenschutzerklärung</string>
     <string name="support_no_browser">Kein Browser auf diesem Handy, um die Seite zu öffnen.</string>

@@ -86,6 +86,11 @@ EXPECTED = {
     # this app opens a socket (ADR-0011). docs/play-app-content.md §7 states it
     # that way, and the privacy policy says the same in the owner's words.
     "android.permission.INTERNET": "ML Kit → transport-backend-cct; see play-app-content.md §7",
+    # Arrived at 1.10 with the Play Billing Library, for the tip (ADR-0011). It lets
+    # the app bind to the Play Store app's billing service; no dialog, no user data.
+    # Billing's own datatransport dependency merges INTERNET and ACCESS_NETWORK_STATE,
+    # both already here for the reasons above.
+    "com.android.vending.BILLING": "the Play Billing Library — the tip, ADR-0011",
 }
 
 # Permissions that must never appear. Absence is what the Data safety answers

@@ -1,7 +1,10 @@
 package app.binky.tracker.ui.support
 
 import android.os.Build
+import androidx.activity.compose.LocalActivity
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
@@ -29,15 +32,21 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalResources
 import androidx.compose.ui.res.stringResource
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.lifecycle.viewmodel.compose.viewModel
 import app.binky.tracker.BuildConfig
 import app.binky.tracker.R
 import app.binky.tracker.theme.Spacing
+import app.binky.tracker.tip.TipOffer
+import app.binky.tracker.tip.TipOutcome
+import app.binky.tracker.ui.appViewModelExtras
 import app.binky.tracker.ui.common.Chevron
 import app.binky.tracker.ui.common.FactRow
 import app.binky.tracker.ui.common.GroupedCard
@@ -52,12 +61,9 @@ import kotlinx.coroutines.launch
  * Support — the way to reach a person, rate the app, read the privacy policy, and see which build
  * this is. Reached from More, which is where the app's last "coming soon" used to be.
  *
- * **No `ViewModel`, and that is an exception with a reason.** The house rule is one per screen
- * because a screen normally owns a `Flow` from a DAO and state that has to survive rotation. This
- * one reads three compile-time constants and the resolved configuration; its only mutable state is a
- * `SnackbarHostState`, `remember`ed exactly as `CareReminderScreen` does it. A `ViewModel` here would
- * be an empty class whose `uiState` never changes — ceremony that makes the next reader go looking
- * for the data it implies.
+ * **The `ViewModel` is the tip's alone** (ADR-0011): Play's prices and what the last tip became.
+ * Every other row reads compile-time constants and the resolved configuration, and its only mutable
+ * state is a `SnackbarHostState`, `remember`ed exactly as `CareReminderScreen` does it.
  *
  * **Nothing here has a pre-check.** Every button is always live, and the failure is reported *after*
  * the attempt, because on API 30+ `resolveActivity` answers "no" on a phone that has the app —
@@ -97,8 +103,12 @@ fun SupportScreen(
     onBack: () -> Unit,
     onOpenLicences: () -> Unit,
     modifier: Modifier = Modifier,
+    viewModel: SupportViewModel =
+        viewModel(factory = SupportViewModel.Factory, extras = appViewModelExtras()),
 ) {
     val context = LocalContext.current
+    val activity = LocalActivity.current
+    val state by viewModel.uiState.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
 
@@ -177,6 +187,17 @@ fun SupportScreen(
 
             RateCard(onRate = { if (!context.openPlayListing()) say(noStoreApp) })
             Spacer(Modifier.height(Spacing.section))
+
+            // Absent rather than disabled where Play sells nothing: no Play, a debug build, or
+            // products not yet created in the Console.
+            if (state.offers.isNotEmpty() && activity != null) {
+                TipCard(
+                    offers = state.offers,
+                    outcome = state.outcome,
+                    onTip = { offer -> viewModel.tip(activity, offer) },
+                )
+                Spacer(Modifier.height(Spacing.section))
+            }
 
             // Here rather than in Settings: the version exists for the bug report above, and a
             // number kept away from the screen that needs it is how it goes stale unnoticed. In a
@@ -276,7 +297,7 @@ private fun ContactCard(
     }
 }
 
-/** The only thing a free, ad-free app asks for, and the sentence saying so. */
+/** A rating, which costs the owner nothing, and the sentence saying the app is free. */
 @Composable
 private fun RateCard(onRate: () -> Unit) {
     GroupedCard(contentPadding = PaddingValues(Spacing.base)) {
@@ -289,6 +310,51 @@ private fun RateCard(onRate: () -> Unit) {
             style = MaterialTheme.typography.bodySmall,
             color = MaterialTheme.colorScheme.onSurfaceVariant,
         )
+    }
+}
+
+/**
+ * Tipping the developer (ADR-0011). The buttons are Play's own prices in the owner's currency, so
+ * there is no label to translate on them, and nothing here says what a tip buys, because it buys
+ * nothing.
+ */
+@Composable
+private fun TipCard(
+    offers: List<TipOffer>,
+    outcome: TipOutcome?,
+    onTip: (TipOffer) -> Unit,
+) {
+    GroupedCard(contentPadding = PaddingValues(Spacing.base)) {
+        Text(
+            text = stringResource(R.string.support_tip_title),
+            style = MaterialTheme.typography.titleSmall,
+        )
+        Spacer(Modifier.height(Spacing.hair))
+        Text(
+            text = stringResource(R.string.support_tip_help),
+            style = MaterialTheme.typography.bodySmall,
+            color = MaterialTheme.colorScheme.onSurfaceVariant,
+        )
+        Spacer(Modifier.height(Spacing.tight))
+        FlowRow(horizontalArrangement = Arrangement.spacedBy(Spacing.tight)) {
+            offers.forEach { offer ->
+                OutlinedButton(onClick = { onTip(offer) }) { Text(offer.price) }
+            }
+        }
+        if (outcome != null) {
+            Spacer(Modifier.height(Spacing.tight))
+            Text(
+                text =
+                    stringResource(
+                        when (outcome) {
+                            TipOutcome.Thanked -> R.string.support_tip_thanks
+                            TipOutcome.Pending -> R.string.support_tip_pending
+                        },
+                    ),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.primary,
+            )
+        }
     }
 }
 

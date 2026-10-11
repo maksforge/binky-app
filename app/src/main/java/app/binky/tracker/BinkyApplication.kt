@@ -2,6 +2,9 @@ package app.binky.tracker
 
 import android.app.Application
 import android.util.Log
+import androidx.lifecycle.DefaultLifecycleObserver
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.work.Configuration
 import app.binky.tracker.data.AppPreferences
 import app.binky.tracker.data.BUNNY_DATABASE_FILE
@@ -210,7 +213,27 @@ class BinkyApplication :
                 // until the condition clears.
                 postBackupExclusionNoticeIfDue(container.preferences)
             }
+            settleTipsOnEveryForeground()
             onOpened()
         }
+    }
+
+    /**
+     * Play refunds a purchase nobody acknowledged within three days, so a tip that cleared while the
+     * app was closed — or was paid just before a process death — is consumed the next time the owner
+     * opens the app, whichever screen that is (ADR-0011). On *start*, not at process creation: a
+     * broadcast or the sweep starts the process too, and binding Play for those wakes it for nobody.
+     * After the gate, because the container is not built before it.
+     */
+    private fun settleTipsOnEveryForeground() {
+        // Kotlin note: an `object :` expression is an anonymous class instance — `{ onStart() {} }`
+        // passed where JS would pass a listener object. Added on the main thread, which it must be.
+        ProcessLifecycleOwner.get().lifecycle.addObserver(
+            object : DefaultLifecycleObserver {
+                override fun onStart(owner: LifecycleOwner) {
+                    scope.launch { container.tipJar.settlePending() }
+                }
+            },
+        )
     }
 }

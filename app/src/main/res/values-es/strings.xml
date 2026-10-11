@@ -135,6 +135,10 @@
     <string name="home_empty_title">Todavía no hay conejos</string>
     <string name="home_empty_body">Añade tu primer conejo para empezar a llevar el registro.</string>
     <string name="home_all_bunnies_stub">Toca un conejo para abrirlo.</string>
+    <string name="home_tip_ask_title">Binky es gratis y lo seguirá siendo</string>
+    <string name="home_tip_ask_body">Si te ayuda a cuidar de tus conejos, puedes dejarle una propina al desarrollador. No desbloquea nada, y Binky no volverá a preguntar.</string>
+    <string name="home_tip_ask_accept">Dejar una propina</string>
+    <string name="home_tip_ask_decline">No, gracias</string>
     <!-- Unlike Polish, Spanish needs no reordering here: "Sobre" governs no case a typed name
          would have to decline into. -->
     <string name="home_about_bunny">Sobre %1$s</string>
@@ -955,7 +959,11 @@
     <string name="support_email_label">O escribe a:</string>
     <string name="support_no_mail_app">No hay ninguna app de correo en este teléfono. La dirección de arriba se puede copiar.</string>
     <string name="support_rate_button">Valorar Binky en Google Play</string>
-    <string name="support_rate_help">Binky es gratis y sin anuncios. Una valoración es lo único que pide.</string>
+    <string name="support_rate_help">Binky es gratis y sin anuncios. Una valoración ayuda a otros a encontrarla.</string>
+    <string name="support_tip_title">Dejar una propina al desarrollador</string>
+    <string name="support_tip_help">Una propina única, pagada a través de Google Play. No desbloquea nada, porque en Binky no hay nada bloqueado.</string>
+    <string name="support_tip_thanks">Gracias. Significa mucho.</string>
+    <string name="support_tip_pending">Tu pago aún se está procesando. Google Play lo completará.</string>
     <string name="support_no_store_app">No se pudo abrir Google Play en este teléfono.</string>
     <string name="support_privacy_button">Política de privacidad</string>
     <string name="support_no_browser">No hay ningún navegador en este teléfono para abrir la página.</string>

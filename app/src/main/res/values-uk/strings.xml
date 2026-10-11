@@ -199,6 +199,10 @@
     <string name="home_empty_title">Кроликів ще немає</string>
     <string name="home_empty_body">Додай першого кролика, щоб почати вести записи.</string>
     <string name="home_all_bunnies_stub">Торкнися кролика, щоб відкрити його.</string>
+    <string name="home_tip_ask_title">Binky безкоштовний і таким залишиться</string>
+    <string name="home_tip_ask_body">Якщо він допомагає тобі доглядати кроликів, можеш залишити розробникові чайові. Вони нічого не відкривають, і Binky більше не питатиме.</string>
+    <string name="home_tip_ask_accept">Залишити чайові</string>
+    <string name="home_tip_ask_decline">Ні, дякую</string>
     <string name="home_about_bunny">Про кролика %1$s</string>
     <string name="home_timeline_title">Хронологія</string>
     <string name="home_timeline_open">Переглянути всю хронологію</string>
@@ -1001,7 +1005,11 @@
     <string name="support_email_label">Або напиши на:</string>
     <string name="support_no_mail_app">На цьому телефоні немає поштового застосунку. Адресу вище можна скопіювати.</string>
     <string name="support_rate_button">Оцінити Binky в Google Play</string>
-    <string name="support_rate_help">Binky безкоштовний і без реклами. Оцінка — єдине, про що він просить.</string>
+    <string name="support_rate_help">Binky безкоштовний і без реклами. Оцінка допомагає іншим його знайти.</string>
+    <string name="support_tip_title">Чайові розробникові</string>
+    <string name="support_tip_help">Одноразові чайові через Google Play. Вони нічого не відкривають, бо в Binky нічого не заблоковано.</string>
+    <string name="support_tip_thanks">Дякую. Це багато для мене означає.</string>
+    <string name="support_tip_pending">Платіж ще обробляється. Google Play його завершить.</string>
     <string name="support_no_store_app">Не вдалося відкрити Google Play на цьому телефоні.</string>
     <string name="support_privacy_button">Політика конфіденційності</string>
     <string name="support_no_browser">На цьому телефоні немає браузера, щоб відкрити сторінку.</string>
