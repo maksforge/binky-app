@@ -97,12 +97,11 @@ fun HomeScreen(
 ) {
     val viewModel: HomeViewModel = viewModel(factory = HomeViewModel.Factory, extras = appViewModelExtras())
     val state by viewModel.uiState.collectAsStateWithLifecycle()
-    val showTipAsk by viewModel.showTipAsk.collectAsStateWithLifecycle()
 
     // Kotlin note: a nullable composable lambda is a slot that may be empty — the `{ cond && <X/> }`
     // of JSX, passed down so each shape of Home decides where it sits. Never in an archived scope.
     val tipAsk: (@Composable () -> Unit)? =
-        if (showTipAsk && !state.readOnly) {
+        if (state.showTipAsk && !state.readOnly) {
             {
                 TipAskCard(
                     onTip = {

@@ -82,15 +82,20 @@ class TipJar(
     private val client: BillingClient =
         BillingClient
             .newBuilder(context.applicationContext)
-            .setListener { result, _ ->
-                if (result.responseCode == BillingClient.BillingResponseCode.OK) {
-                    scope.launch { settlePending(announce = true) }
+            .setListener { result, purchases ->
+                if (result.responseCode == BillingClient.BillingResponseCode.OK && purchases != null) {
+                    scope.launch { announce(purchases) }
                 }
             }.enablePendingPurchases(PendingPurchasesParams.newBuilder().enableOneTimeProducts().build())
             .enableAutoServiceReconnection()
             .build()
 
     private val connecting = Mutex()
+
+    // The listener and the foreground settle can reach the same token at once; under this lock the
+    // second one finds it in [consumed] instead of racing the first to Play.
+    private val consuming = Mutex()
+    private val consumed = mutableSetOf<String>()
 
     /** Asks Play for prices. */
     suspend fun refresh() {
@@ -117,14 +122,12 @@ class TipJar(
     }
 
     /**
-     * Consumes every tip Play still holds as owned: the one just paid, a pending payment that has
-     * since cleared, or one a process death caught between paying and consuming. Run on every
-     * foreground by `BinkyApplication`, because Play refunds what is not acknowledged in three days.
-     *
-     * Asks Play rather than trusting the listener's list, which can arrive before a pending
-     * purchase has cleared.
+     * Consumes every tip Play still holds as owned: a pending payment that has since cleared, or one a
+     * process death caught between paying and consuming. Run on every foreground by
+     * `BinkyApplication`, because Play refunds what is not acknowledged in three days. Announces
+     * nothing: what it finds may be any tip, from any day.
      */
-    suspend fun settlePending(announce: Boolean = false) {
+    suspend fun settlePending() {
         if (!connect()) return
         val owned =
             client.queryPurchasesAsync(
@@ -134,7 +137,7 @@ class TipJar(
             Log.i(TAG, "no purchases: ${owned.billingResult.debugMessage}")
             return
         }
-        settle(owned.purchasesList, announce)
+        owned.purchasesList.forEach { settle(it) }
     }
 
     /** Opens Play's sheet. The answer arrives at the listener, because the sheet is Play's to close. */
@@ -159,27 +162,35 @@ class TipJar(
         }
     }
 
-    /** One consume per purchase token covers its whole quantity, so quantity is never read here. */
-    private suspend fun settle(
-        purchases: List<Purchase>,
-        announce: Boolean,
-    ) {
-        for (purchase in purchases) {
-            when (purchase.purchaseState) {
-                Purchase.PurchaseState.PURCHASED -> {
-                    val consumed =
-                        client.consumePurchase(
-                            ConsumeParams.newBuilder().setPurchaseToken(purchase.purchaseToken).build(),
-                        )
-                    val ok = consumed.billingResult.responseCode == BillingClient.BillingResponseCode.OK
-                    if (!ok) Log.w(TAG, "consume failed: ${consumed.billingResult.debugMessage}")
-                    if (ok && announce) _outcomes.tryEmit(TipOutcome.Thanked)
-                }
-                Purchase.PurchaseState.PENDING -> if (announce) _outcomes.tryEmit(TipOutcome.Pending)
-                else -> Unit
-            }
-        }
+    /**
+     * Settles the purchases of one listener callback and announces what **they** became, so an older
+     * tip still pending cannot answer for this one, and a foreground settle that consumed it first
+     * cannot swallow the thanks.
+     */
+    private suspend fun announce(purchases: List<Purchase>) {
+        outcomeOf(purchases.map { settle(it) })?.let { _outcomes.tryEmit(it) }
     }
+
+    private suspend fun settle(purchase: Purchase): Settled =
+        when (purchase.purchaseState) {
+            Purchase.PurchaseState.PURCHASED ->
+                if (consume(purchase.purchaseToken)) Settled.Consumed else Settled.Unsettled
+            Purchase.PurchaseState.PENDING -> Settled.Pending
+            else -> Settled.Unsettled
+        }
+
+    /** One consume per purchase token covers its whole quantity, so quantity is never read here. */
+    private suspend fun consume(token: String): Boolean =
+        consuming.withLock {
+            if (token in consumed) return@withLock true
+            val result =
+                client
+                    .consumePurchase(ConsumeParams.newBuilder().setPurchaseToken(token).build())
+                    .billingResult
+            val settled = consumeSettled(result.responseCode)
+            if (settled) consumed += token else Log.w(TAG, "consume failed: ${result.debugMessage}")
+            settled
+        }
 
     private suspend fun connect(): Boolean =
         connecting.withLock {
@@ -209,3 +220,23 @@ private fun offerOf(details: ProductDetails): TipOffer? {
     val offer = details.oneTimePurchaseOfferDetails ?: return null
     return TipOffer(details.productId, offer.formattedPrice, offer.priceAmountMicros, details)
 }
+
+/** What one purchase in a listener callback came to. */
+internal enum class Settled { Consumed, Pending, Unsettled }
+
+/** A consumed tip outranks a pending one in the same callback: the owner has paid. */
+internal fun outcomeOf(settled: List<Settled>): TipOutcome? =
+    when {
+        Settled.Consumed in settled -> TipOutcome.Thanked
+        Settled.Pending in settled -> TipOutcome.Pending
+        else -> null
+    }
+
+/**
+ * `ITEM_NOT_OWNED` is Play's answer for a token already consumed — by the other path, or by a run
+ * a process death cut short — so the tip is settled either way. Any other failure leaves it owned,
+ * and the next foreground tries again before Play's three days run out.
+ */
+internal fun consumeSettled(responseCode: Int): Boolean =
+    responseCode == BillingClient.BillingResponseCode.OK ||
+        responseCode == BillingClient.BillingResponseCode.ITEM_NOT_OWNED

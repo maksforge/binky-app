@@ -136,6 +136,8 @@ If that trade is ever judged not worth it, the contingency is written down and c
 the scanner behind an interface with a plain-camera fallback, so dropping ML Kit is one line in
 `AppContainer` and loses auto-crop and page detection only. Documents as *data* bring no dependency
 at all. Measured at 5g, the dependency also costs **+534 KB** of AAB (11,404,302 → 11,951,123 bytes).
+**From 1.10, dropping ML Kit alone no longer removes `INTERNET`**: the Play Billing Library merges it
+too (§1.10).
 
 #### What ML Kit did **not** bring, asserted rather than assumed
 
@@ -165,6 +167,9 @@ before calling this confirmed, as 5j did for 1.2.
 `ACCESS_NETWORK_STATE`, both already present for ML Kit and WorkManager, so the set grows by one. No
 `AD_ID`, no `CAMERA`, no `<uses-feature>` — the four forbidden entries are still absent. A purchase is an
 IPC call to the Play Store app, which does its own networking; the app's code still opens no socket.
+The library's own logging does not go through Play: its classes hand events to a `datatransport`
+`CCTDestination`, so Google's billing diagnostics leave from the app's process, as the scanner's do.
+The privacy policy's *Tips* bullet says so.
 
 ---
 

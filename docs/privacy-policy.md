@@ -36,6 +36,10 @@ Google's doing rather than ours:
 - **Tips.** The Support screen offers an optional tip to the developer, paid through Google Play. Google
   Play takes and processes the payment under Google's privacy policy; **the app never sees your payment
   details**, learns nothing about you from a tip, and stores nothing about it. A tip unlocks nothing.
+  The billing component that opens Google Play's payment sheet is Google's code, bundled with the app,
+  and it brings the same network permission as the scanner below. It can use it: Google may collect its
+  own diagnostics about that component under Google's privacy policy, sent from the app. It is never
+  given any of your records.
 - **The document scanner.** Scanning a document uses Google's on-device scanner, which is part of Google
   Play services. Because that component is bundled with the app, the app's installation listing shows a
   network permission that Google's component brings with it. **The scanner does not receive any of your
