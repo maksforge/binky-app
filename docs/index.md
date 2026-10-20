@@ -49,7 +49,7 @@ outside the app because the operating system or Google does them, are in the
 
 ## Support
 
-**`binky.support@gmail.com`** — an ordinary mailbox that a person reads. Questions, bug reports and
+**`binky.support@maksforge.com`** — an ordinary mailbox that a person reads. Questions, bug reports and
 feature requests all go to the same place.
 
 ## The source
