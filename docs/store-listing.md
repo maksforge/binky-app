@@ -1201,80 +1201,81 @@ block under `### 1.10.1 — the support address`** at the end of *Release notes*
 rewrite, and the gate then passes.
 
 **Scoped to the release's own change.** 1.10.1 changes one thing an owner can see: the address on the
-Support screen, and the one its two mail buttons open a message to. Each locale names the screen and
-both buttons by the app's own `support_title`, `support_bug_button` and `support_feature_button`, in
-that locale's quotation marks. Nothing here addresses the reader, so the brief's per-locale register
-has nothing to bind to. The old Gmail address is not mentioned: it is checked by hand rather than
+Support screen, and the one every message Binky opens is sent to — the screen's two mail buttons and
+the language dialog's translation report. Each locale names the screen, both buttons, the report row
+and its dialog by the app's own `support_title`, `support_bug_button`, `support_feature_button`,
+`settings_language_report` and `settings_language`, in that locale's quotation marks. Nothing here
+addresses the reader, so the brief's per-locale register has nothing to bind to. The old Gmail address is not mentioned: it is checked by hand rather than
 forwarded, and a note is no place to promise a reply from it.
 
-**English** — 160/500:
+**English** — 200/500:
 
 ```
-• Support has a new address: binky.support@maksforge.com. “Report a bug” and “Request a feature” now open a message to it.
+• Support has a new address: binky.support@maksforge.com. “Report a bug”, “Request a feature” and “Something read wrong?” under Language now open a message to it.
 
 Still no account, no ads, no server.
 ```
 
-**Polish** — 180/500:
+**Polish** — 217/500:
 
 ```
-• Nowy adres na ekranie Wsparcie: binky.support@maksforge.com. „Zgłoś błąd” i „Zaproponuj funkcję” otwierają teraz wiadomość na ten adres.
+• Nowy adres na ekranie Wsparcie: binky.support@maksforge.com. „Zgłoś błąd”, „Zaproponuj funkcję” i „Coś brzmi nie tak?” w oknie Język otwierają teraz wiadomość na ten adres.
 
 Nadal bez konta, bez reklam, bez serwera.
 ```
 
-**German** — 198/500:
+**German** — 236/500:
 
 ```
-• Neue Adresse unter Support: binky.support@maksforge.com. „Fehler melden“ und „Funktion vorschlagen“ öffnen jetzt eine Nachricht an diese Adresse.
+• Neue Adresse unter Support: binky.support@maksforge.com. „Fehler melden“, „Funktion vorschlagen“ und „Klingt etwas falsch?“ unter Sprache öffnen jetzt eine Nachricht an diese Adresse.
 
 Weiterhin kein Konto, keine Werbung, kein Server.
 ```
 
-**Spanish** — 191/500:
+**Spanish** — 221/500:
 
 ```
-• Nueva dirección en Soporte: binky.support@maksforge.com. «Informar de un fallo» y «Pedir una función» abren ahora un mensaje a esa dirección.
+• Nueva dirección en Soporte: binky.support@maksforge.com. «Informar de un fallo», «Pedir una función» y «¿Algo suena mal?» en Idioma abren ahora un mensaje a esa dirección.
 
 Sigue sin cuenta, sin anuncios y sin servidor.
 ```
 
-**French** — 206/500:
+**French** — 250/500:
 
 ```
-• Nouvelle adresse dans Assistance : binky.support@maksforge.com. « Signaler un bug » et « Proposer une idée » ouvrent désormais un message vers cette adresse.
+• Nouvelle adresse dans Assistance : binky.support@maksforge.com. « Signaler un bug », « Proposer une idée » et « Quelque chose sonne faux ? » dans Langue ouvrent désormais un message vers cette adresse.
 
 Toujours sans compte, sans pub, sans serveur.
 ```
 
-**Italian** — 207/500:
+**Italian** — 241/500:
 
 ```
-• Nuovo indirizzo in Assistenza: binky.support@maksforge.com. «Segnala un problema» e «Proponi una funzione» ora aprono un messaggio a questo indirizzo.
+• Nuovo indirizzo in Assistenza: binky.support@maksforge.com. «Segnala un problema», «Proponi una funzione» e «Qualcosa suona male?» in Lingua ora aprono un messaggio a questo indirizzo.
 
 Sempre senza account, senza pubblicità, senza server.
 ```
 
-**Brazilian Portuguese** — 196/500:
+**Brazilian Portuguese** — 234/500:
 
 ```
-• Novo endereço em Suporte: binky.support@maksforge.com. “Relatar um problema” e “Sugerir um recurso” agora abrem uma mensagem para esse endereço.
+• Novo endereço em Suporte: binky.support@maksforge.com. “Relatar um problema”, “Sugerir um recurso” e “Alguma coisa soa errada?” em Idioma agora abrem uma mensagem para esse endereço.
 
 Continua sem conta, sem anúncios e sem servidor.
 ```
 
-**Czech** — 170/500:
+**Czech** — 203/500:
 
 ```
-• Nová adresa v Podpoře: binky.support@maksforge.com. „Nahlásit chybu“ a „Navrhnout funkci“ teď otevírají zprávu na tuto adresu.
+• Nová adresa v Podpoře: binky.support@maksforge.com. „Nahlásit chybu“, „Navrhnout funkci“ a „Zní něco špatně?“ v okně Jazyk teď otevírají zprávu na tuto adresu.
 
 Stále bez účtu, bez reklam, bez serveru.
 ```
 
-**Ukrainian** — 198/500:
+**Ukrainian** — 235/500:
 
 ```
-• Нова адреса в Підтримці: binky.support@maksforge.com. «Повідомити про помилку» і «Запропонувати функцію» тепер відкривають лист на цю адресу.
+• Нова адреса в Підтримці: binky.support@maksforge.com. «Повідомити про помилку», «Запропонувати функцію» і «Щось звучить не так?» у вікні Мова тепер відкривають лист на цю адресу.
 
 Досі без облікового запису, без реклами, без сервера.
 ```
