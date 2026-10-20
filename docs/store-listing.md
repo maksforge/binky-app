@@ -83,7 +83,8 @@ set it to anything else and the listing points a reader at a mailbox the app its
 1.10.0 compile it in as the support address, so their reports keep arriving there for as long as any
 of those installs survives — and the privacy policy promises to delete mail sent to it. Never delete
 the account, and **sign in to it at least once every two years**: Google deletes a personal account
-inactive that long, and forwarding alone is unlikely to count as activity.
+inactive that long. It is **not forwarded**; check its inbox by hand now and then for mail from those
+builds.
 
 The privacy policy is served by GitHub Pages from `main` / `docs`, which is why `docs/_config.yml`
 exists at all: Play requires a *hosted* URL and the app has no server by design. It rebuilds on every
@@ -1185,6 +1186,96 @@ Stále bez účtu, bez reklam, bez serveru.
 
 ```
 • Нове в Підтримці: чайові розробникові через Google Play. Вони добровільні й одноразові та нічого не відкривають: усі функції лишаються безкоштовними для всіх.
+
+Досі без облікового запису, без реклами, без сервера.
+```
+
+---
+
+## Release notes drafted ahead of their version
+
+**1.10.1's notes, for the support address.** They sit outside *Release notes* on purpose, as 1.10.0's
+did until its release: `notes-gate.py` fails a branch whose newest `### x.y.z` is ahead of
+`versionName`, and `main` stays on 1.10.0 until release-please's PR merges. **On that PR, move this
+block under `### 1.10.1 — the support address`** at the end of *Release notes* — a move, not a
+rewrite, and the gate then passes.
+
+**Scoped to the release's own change.** 1.10.1 changes one thing an owner can see: the address on the
+Support screen, and the one every message Binky opens is sent to — the screen's two mail buttons and
+the language dialog's translation report. Each locale names the screen, both buttons, the report row
+and its dialog by the app's own `support_title`, `support_bug_button`, `support_feature_button`,
+`settings_language_report` and `settings_language`, in that locale's quotation marks. Nothing here
+addresses the reader, so the brief's per-locale register has nothing to bind to. The old Gmail address is not mentioned: it is checked by hand rather than
+forwarded, and a note is no place to promise a reply from it.
+
+**English** — 200/500:
+
+```
+• Support has a new address: binky.support@maksforge.com. “Report a bug”, “Request a feature” and “Something read wrong?” under Language now open a message to it.
+
+Still no account, no ads, no server.
+```
+
+**Polish** — 217/500:
+
+```
+• Nowy adres na ekranie Wsparcie: binky.support@maksforge.com. „Zgłoś błąd”, „Zaproponuj funkcję” i „Coś brzmi nie tak?” w oknie Język otwierają teraz wiadomość na ten adres.
+
+Nadal bez konta, bez reklam, bez serwera.
+```
+
+**German** — 236/500:
+
+```
+• Neue Adresse unter Support: binky.support@maksforge.com. „Fehler melden“, „Funktion vorschlagen“ und „Klingt etwas falsch?“ unter Sprache öffnen jetzt eine Nachricht an diese Adresse.
+
+Weiterhin kein Konto, keine Werbung, kein Server.
+```
+
+**Spanish** — 221/500:
+
+```
+• Nueva dirección en Soporte: binky.support@maksforge.com. «Informar de un fallo», «Pedir una función» y «¿Algo suena mal?» en Idioma abren ahora un mensaje a esa dirección.
+
+Sigue sin cuenta, sin anuncios y sin servidor.
+```
+
+**French** — 250/500:
+
+```
+• Nouvelle adresse dans Assistance : binky.support@maksforge.com. « Signaler un bug », « Proposer une idée » et « Quelque chose sonne faux ? » dans Langue ouvrent désormais un message vers cette adresse.
+
+Toujours sans compte, sans pub, sans serveur.
+```
+
+**Italian** — 241/500:
+
+```
+• Nuovo indirizzo in Assistenza: binky.support@maksforge.com. «Segnala un problema», «Proponi una funzione» e «Qualcosa suona male?» in Lingua ora aprono un messaggio a questo indirizzo.
+
+Sempre senza account, senza pubblicità, senza server.
+```
+
+**Brazilian Portuguese** — 234/500:
+
+```
+• Novo endereço em Suporte: binky.support@maksforge.com. “Relatar um problema”, “Sugerir um recurso” e “Alguma coisa soa errada?” em Idioma agora abrem uma mensagem para esse endereço.
+
+Continua sem conta, sem anúncios e sem servidor.
+```
+
+**Czech** — 203/500:
+
+```
+• Nová adresa v Podpoře: binky.support@maksforge.com. „Nahlásit chybu“, „Navrhnout funkci“ a „Zní něco špatně?“ v okně Jazyk teď otevírají zprávu na tuto adresu.
+
+Stále bez účtu, bez reklam, bez serveru.
+```
+
+**Ukrainian** — 235/500:
+
+```
+• Нова адреса в Підтримці: binky.support@maksforge.com. «Повідомити про помилку», «Запропонувати функцію» і «Щось звучить не так?» у вікні Мова тепер відкривають лист на цю адресу.
 
 Досі без облікового запису, без реклами, без сервера.
 ```
