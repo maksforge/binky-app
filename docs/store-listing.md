@@ -83,7 +83,8 @@ set it to anything else and the listing points a reader at a mailbox the app its
 1.10.0 compile it in as the support address, so their reports keep arriving there for as long as any
 of those installs survives — and the privacy policy promises to delete mail sent to it. Never delete
 the account, and **sign in to it at least once every two years**: Google deletes a personal account
-inactive that long, and forwarding alone is unlikely to count as activity.
+inactive that long. It is **not forwarded**; check its inbox by hand now and then for mail from those
+builds.
 
 The privacy policy is served by GitHub Pages from `main` / `docs`, which is why `docs/_config.yml`
 exists at all: Play requires a *hosted* URL and the app has no server by design. It rebuilds on every

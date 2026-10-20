@@ -82,8 +82,6 @@ the short list below of things that are open without being a phase.
   come through Cloudflare. Send *Report a bug* from the app off a non-Gmail account and confirm it lands
   in the inbox, not Spam, with the `subject:bug` filter applying on the account it now reaches — Phase
   6's first report went to Spam with no error at either end ([`phase-6.md`](phase-6.md)).
-- **Forward `binky.support@gmail.com` to the developer inbox.** It is a separate account and is not
-  forwarded yet; why it stays alive for good is in [`store-listing.md`](store-listing.md).
 - **Google's developer-verification registration is due 30 Sept 2026.** The owner believes the app is
   already registered and has not confirmed it in the Console; confirming is the whole task. The other
   deadline Play surfaced — the target-API requirement on 31 Aug 2026 — is already satisfied, because
