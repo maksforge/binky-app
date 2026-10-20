@@ -1192,15 +1192,9 @@ Stále bez účtu, bez reklam, bez serveru.
 
 ---
 
-## Release notes drafted ahead of their version
+### 1.10.1 — the support address
 
-**1.10.1's notes, for the support address.** They sit outside *Release notes* on purpose, as 1.10.0's
-did until its release: `notes-gate.py` fails a branch whose newest `### x.y.z` is ahead of
-`versionName`, and `main` stays on 1.10.0 until release-please's PR merges. **On that PR, move this
-block under `### 1.10.1 — the support address`** at the end of *Release notes* — a move, not a
-rewrite, and the gate then passes.
-
-**Scoped to the release's own change.** 1.10.1 changes one thing an owner can see: the address on the
+**1.10.1's notes.** **Scoped to the release's own change.** 1.10.1 changes one thing an owner can see: the address on the
 Support screen, and the one every message Binky opens is sent to — the screen's two mail buttons and
 the language dialog's translation report. Each locale names the screen, both buttons, the report row
 and its dialog by the app's own `support_title`, `support_bug_button`, `support_feature_button`,
