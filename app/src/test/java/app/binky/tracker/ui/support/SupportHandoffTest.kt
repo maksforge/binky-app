@@ -182,7 +182,6 @@ class SupportHandoffTest {
 
     @Test
     fun `the inbox and the privacy policy are the ones the listing names`() {
-        // Pins the address the Play Console's per-app contact email is set to.
         assertEquals("binky.support@maksforge.com", SUPPORT_EMAIL)
         assertEquals("https://srednimax.github.io/binky-app/privacy-policy.html", PRIVACY_POLICY_URL)
     }
