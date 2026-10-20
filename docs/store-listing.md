@@ -79,6 +79,12 @@ email address listed on the app's Google Play listing". So this field is the hin
 set it to anything else and the listing points a reader at a mailbox the app itself never uses. See
 [`play-app-content.md`](play-app-content.md) and [`phase-6.md`](phase-6.md).
 
+**`binky.support@gmail.com` stays alive for good.** It is its own Gmail account, and builds 1.3 to
+1.10.0 compile it in as the support address, so their reports keep arriving there for as long as any
+of those installs survives — and the privacy policy promises to delete mail sent to it. Never delete
+the account, and **sign in to it at least once every two years**: Google deletes a personal account
+inactive that long, and forwarding alone is unlikely to count as activity.
+
 The privacy policy is served by GitHub Pages from `main` / `docs`, which is why `docs/_config.yml`
 exists at all: Play requires a *hosted* URL and the app has no server by design. It rebuilds on every
 push to `main`, so the policy can never drift from the repo. ⚠️ **The site root is no longer a 404.**
