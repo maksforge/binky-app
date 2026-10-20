@@ -141,7 +141,7 @@ fun supportBody(
     }
 
 /** Confirmed live before anything named it — everything here hardcodes it. */
-const val SUPPORT_EMAIL = "binky.support@gmail.com"
+const val SUPPORT_EMAIL = "binky.support@maksforge.com"
 
 /**
  * The **release** `applicationId`, written out rather than derived.
@@ -170,7 +170,7 @@ fun playMarketUri(): String = "market://details?id=$PLAY_PACKAGE"
 fun playWebUrl(): String = "https://play.google.com/store/apps/details?id=$PLAY_PACKAGE"
 
 /**
- * `mailto:binky.support@gmail.com?subject=…&body=…`, with both values percent-encoded by [encode].
+ * `mailto:binky.support@maksforge.com?subject=…&body=…`, with both values percent-encoded by [encode].
  *
  * **The subject and body have to travel in the query string, and this was the reverse of the original
  * design.** That version put them in `EXTRA_SUBJECT` / `EXTRA_TEXT` to sidestep the `#` fragment trap

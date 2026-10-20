@@ -5,7 +5,7 @@ title: Privacy Policy — Binky
 
 # Privacy Policy — Binky
 
-_Last updated: 11 October 2026_
+_Last updated: 20 October 2026_
 
 Binky is an Android app for keeping track of a pet rabbit's health. This policy describes what the
 app does with the information you put into it. It is short because the app does very little.
@@ -56,7 +56,7 @@ Nothing is sent automatically.
 
 The **Support** screen is the third of these, and the only one addressed to us. Tapping *Report a bug* or
 *Request a feature* opens a new message **in your own mail app**, addressed to
-`binky.support@gmail.com` — an ordinary mailbox that a person reads. A bug report also has a few technical
+`binky.support@maksforge.com` — an ordinary mailbox that a person reads. A bug report also has a few technical
 facts written into the message before you see it: the app's version and build number, your Android version,
 your phone's model, and the language the app is set to. **Nothing about your rabbits** — no name, weight,
 observation, dose, document or photo. The app itself sends nothing: what it hands your mail app is a draft,
@@ -84,9 +84,11 @@ records, there is nothing of your rabbits' history for us to delete on your beha
 to send us.
 
 The one exception is a message **you** chose to send us. If you have written to
-`binky.support@gmail.com`, we hold that message — your email address and whatever the message contained,
-including the technical facts described above — in an ordinary mailbox. Write to the same address and we
-will delete the correspondence.
+`binky.support@maksforge.com`, we hold that message — your email address and whatever the message
+contained, including the technical facts described above — in an ordinary mailbox. Write to the same
+address and we will delete the correspondence. The same goes for a message sent to
+`binky.support@gmail.com`, the address the app used before: we still hold it, and will delete it on
+request.
 
 ## Health information
 

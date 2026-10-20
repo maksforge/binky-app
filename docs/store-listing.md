@@ -59,7 +59,7 @@ for consistency rather than because those languages need it.
 | Feature graphic (1024×500) | [`art/play-feature-graphic.png`](../art/play-feature-graphic.png) — **Play crops it to 16:9**, `object-fit: cover` on the search results card, so 68px of each side never shows. `make-feature-graphic.py` derives the layout from that and prints the measured margins; re-upload after any change to it |
 | Phone screenshots (1452×2582) | [`art/play-screenshots/`](../art/play-screenshots/) — **eight scenes × nine locales, light**, re-shot 2026-08-26. Upload in filename order: `1_home`, `2_weight`, `3_observations`, `4_timeline`, `5_care`, `6_medication-course`, `7_documents`, `8_backup`, each suffixed with its locale tag (`-en`, `-cs`, `-de`, `-es`, `-fr`, `-it`, `-pl`, `-pt-BR`, `-uk`) |
 | App category | Lifestyle |
-| Contact email | `binky.support@gmail.com` — the per-app support address, set in Store settings, not the account-level developer email |
+| Contact email | `binky.support@maksforge.com` — the per-app support address, set in Store settings, not the account-level developer email |
 | Website | `https://srednimax.github.io/binky-app/` — the Pages root 9e created, also in Store settings. The privacy-policy URL above is a page *under* it |
 
 ✅ **The screenshots were re-shot on 2026-08-26** and photograph the app as 1.9.0 builds it — 9f's
@@ -72,7 +72,7 @@ oriented at *human* health, where Play applies closer scrutiny to anything that 
 claim — and this app deliberately makes none (ADR-0001). Pet-care apps conventionally sit in
 Lifestyle, so it is also where owners browsing for one will look.
 
-**The contact email is `binky.support@gmail.com` and cannot be anything else from 1.3.** Phase 6's
+**The contact email is `binky.support@maksforge.com` and cannot be anything else from 1.3.** Phase 6's
 Support screen hardcodes that address in `SupportHandoff.kt` — it is what both mail buttons open and what
 the screen renders as selectable text — and the privacy policy's *Contact* section defers to "the developer
 email address listed on the app's Google Play listing". So this field is the hinge the other two hang on:

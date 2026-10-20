@@ -143,7 +143,7 @@ class SupportHandoffTest {
         // EXTRA_TEXT for ACTION_SENDTO, so an implementation that relies on the extras opens a draft
         // with the recipient filled and both other fields empty. Nothing on the screen says so.
         val uri = supportMailtoUri("Subject here", "Body here", ::encode)
-        assertEquals("mailto:binky.support@gmail.com?subject=Subject%20here&body=Body%20here", uri)
+        assertEquals("mailto:binky.support@maksforge.com?subject=Subject%20here&body=Body%20here", uri)
     }
 
     @Test
@@ -177,14 +177,13 @@ class SupportHandoffTest {
     fun `a feature request still produces a well-formed uri with an empty body`() {
         val uri = supportMailtoUri(supportSubject(SupportRequest.FEATURE, "Feature request", release), "", ::encode)
         assertTrue(uri.endsWith("&body="))
-        assertTrue(uri.startsWith("mailto:binky.support@gmail.com?subject=%23feature"))
+        assertTrue(uri.startsWith("mailto:binky.support@maksforge.com?subject=%23feature"))
     }
 
     @Test
     fun `the inbox and the privacy policy are the ones the listing names`() {
-        // Gmail ignores dots, so `binkysupport@` and `binky.support@` are one mailbox — this pins
-        // the spelling the Play Console's per-app contact email is set to.
-        assertEquals("binky.support@gmail.com", SUPPORT_EMAIL)
+        // Pins the address the Play Console's per-app contact email is set to.
+        assertEquals("binky.support@maksforge.com", SUPPORT_EMAIL)
         assertEquals("https://srednimax.github.io/binky-app/privacy-policy.html", PRIVACY_POLICY_URL)
     }
 }

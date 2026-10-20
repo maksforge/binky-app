@@ -74,6 +74,10 @@ the short list below of things that are open without being a phase.
   --crop-status-bar` is the only place it comes off. **What is left of this box is the Console:** the
   production job with `dry_run: true, update_listing: true` as its first real exercise, before a real
   one — and nine locales is nine uploads, not one.
+- **Play's per-app contact email still names the Gmail inbox.** The app and the docs moved to
+  `binky.support@maksforge.com`; *Store settings* must follow before the build carrying it goes up, or
+  the listing and the privacy policy's *Contact* section point at a different address from the app's
+  (see [`store-listing.md`](store-listing.md)).
 - **Google's developer-verification registration is due 30 Sept 2026.** The owner believes the app is
   already registered and has not confirmed it in the Console; confirming is the whole task. The other
   deadline Play surfaced — the target-API requirement on 31 Aug 2026 — is already satisfied, because
