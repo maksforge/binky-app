@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.1](https://github.com/srednimax/binky-app/compare/v1.10.0...v1.10.1) (2026-10-20)
+
+
+### Bug Fixes
+
+* **support:** support mail goes to binky.support@maksforge.com ([5138f18](https://github.com/srednimax/binky-app/commit/5138f18556c7dfec64ef22ad1f8aa9a0e43b1e0e))
+
 ## [1.10.0](https://github.com/srednimax/binky-app/compare/v1.9.1...v1.10.0) (2026-10-11)
 
 
