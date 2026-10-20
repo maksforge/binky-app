@@ -74,10 +74,17 @@ the short list below of things that are open without being a phase.
   --crop-status-bar` is the only place it comes off. **What is left of this box is the Console:** the
   production job with `dry_run: true, update_listing: true` as its first real exercise, before a real
   one — and nine locales is nine uploads, not one.
-- **Play's per-app contact email still names the Gmail inbox.** The app and the docs moved to
-  `binky.support@maksforge.com`; *Store settings* must follow before the build carrying it goes up, or
-  the listing and the privacy policy's *Contact* section point at a different address from the app's
-  (see [`store-listing.md`](store-listing.md)).
+- **Play's per-app contact email still names the Gmail inbox.** Change it in *Store settings* to
+  `binky.support@maksforge.com` the day the address change merges, not at the upload: Pages republishes
+  `privacy-policy.md` and `index.md` from `main` on merge, and the policy's *Contact* section defers to
+  the listing, so the two disagree from that moment (see [`store-listing.md`](store-listing.md)).
+- **The maksforge route has not carried a real report yet.** Only Gmail's send-as confirmations have
+  come through Cloudflare. Send *Report a bug* from the app off a non-Gmail account and confirm it lands
+  in the inbox, not Spam, with the `subject:bug` filter applying on the account it now reaches — Phase
+  6's first report went to Spam with no error at either end ([`phase-6.md`](phase-6.md)).
+- **Keep `binky.support@gmail.com` open and forwarding to the developer inbox.** Builds 1.3 to 1.10.0
+  mail support there and cannot be changed, so the account outlives the last of those installs. Never
+  delete it; forwarding is not set up yet.
 - **Google's developer-verification registration is due 30 Sept 2026.** The owner believes the app is
   already registered and has not confirmed it in the Console; confirming is the whole task. The other
   deadline Play surfaced — the target-API requirement on 31 Aug 2026 — is already satisfied, because

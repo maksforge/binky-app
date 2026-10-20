@@ -140,7 +140,7 @@ fun supportBody(
             ).joinToString("\n")
     }
 
-/** Confirmed live before anything named it — everything here hardcodes it. */
+/** Compiled into every build that ships it, so the mailbox has to outlive the last such install. */
 const val SUPPORT_EMAIL = "binky.support@maksforge.com"
 
 /**

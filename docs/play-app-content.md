@@ -260,7 +260,7 @@ That single answer collapses most of the form. What may still be asked:
 #### ⚠ 1.3 ships a support inbox, and the answer stays **No** — the judgement, written down
 
 Phase 6 puts a **Support** screen in the app with two buttons that open a mail addressed to
-`binky.support@maksforge.com`, the bug one carrying a small diagnostics block. That is the app growing an
+`binky.support@gmail.com`, the bug one carrying a small diagnostics block. That is the app growing an
 outgoing channel to the developer for the first time, so it is exactly the kind of change that should be
 re-examined against this section rather than inherited — and it is recorded here as a judgement, because
 an unwritten one gets re-litigated at the next audit.
@@ -411,7 +411,7 @@ Answer to the question actually asked rather than to this heading.
 ## Not App content, but asked in the same sitting
 
 - **Contact email** — `binky.support@maksforge.com`, the per-app support address, set in *Store settings*,
-  not the account-level developer email. From 1.3 the app hardcodes that address in `SupportHandoff.kt`
+  not the account-level developer email. The app hardcodes its support address in `SupportHandoff.kt`
   and the privacy policy's *Contact* section defers to "the developer email address listed on the app's
   Google Play listing" — so this field is what makes the three agree, and setting anything else there
   points the listing at an inbox the app does not use.

@@ -72,8 +72,8 @@ oriented at *human* health, where Play applies closer scrutiny to anything that 
 claim — and this app deliberately makes none (ADR-0001). Pet-care apps conventionally sit in
 Lifestyle, so it is also where owners browsing for one will look.
 
-**The contact email is `binky.support@maksforge.com` and cannot be anything else from 1.3.** Phase 6's
-Support screen hardcodes that address in `SupportHandoff.kt` — it is what both mail buttons open and what
+**The contact email is `binky.support@maksforge.com` and cannot be anything else.** The app hardcodes
+its support address in `SupportHandoff.kt` — it is what both mail buttons open and what
 the screen renders as selectable text — and the privacy policy's *Contact* section defers to "the developer
 email address listed on the app's Google Play listing". So this field is the hinge the other two hang on:
 set it to anything else and the listing points a reader at a mailbox the app itself never uses. See
