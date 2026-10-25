@@ -54,6 +54,6 @@ feature requests all go to the same place.
 
 ## The source
 
-The app is built in the open at **[github.com/srednimax/binky-app](https://github.com/srednimax/binky-app)**,
-under the [PolyForm Noncommercial](https://github.com/srednimax/binky-app/blob/main/LICENSE) licence:
+The app is built in the open at **[github.com/maksforge/binky-app](https://github.com/maksforge/binky-app)**,
+under the [PolyForm Noncommercial](https://github.com/maksforge/binky-app/blob/main/LICENSE) licence:
 use it, change it, share it, build it for your own rabbits — for any noncommercial purpose.

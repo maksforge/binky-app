@@ -176,7 +176,7 @@ The privacy policy's *Tips* bullet says so.
 ## 1. Privacy policy
 
 ```
-https://srednimax.github.io/binky-app/privacy-policy.html
+https://maksforge.github.io/binky-app/privacy-policy.html
 ```
 
 Returns HTTP 200; the site root 404s deliberately, which is fine — Play checks the policy URL only.
