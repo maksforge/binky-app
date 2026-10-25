@@ -91,7 +91,7 @@ exists at all: Play requires a *hosted* URL and the app has no server by design.
 push to `main`, so the policy can never drift from the repo. ⚠️ **The site root is no longer a 404.**
 This paragraph said it returned one "on purpose" until 2026-08-21, which was true when the site served
 exactly one page; **9e added `docs/index.md`**, so the root now answers 200 and is what the Website
-field below points at.
+field above points at.
 
 ---
 
