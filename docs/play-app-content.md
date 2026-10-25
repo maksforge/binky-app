@@ -179,7 +179,7 @@ The privacy policy's *Tips* bullet says so.
 https://maksforge.github.io/binky-app/privacy-policy.html
 ```
 
-Returns HTTP 200; the site root 404s deliberately, which is fine — Play checks the policy URL only.
+Returns HTTP 200, and so does the site root, which `docs/index.md` serves as the listing's Website.
 
 ## 2. App access
 
