@@ -183,6 +183,6 @@ class SupportHandoffTest {
     @Test
     fun `the inbox and the privacy policy are the ones the listing names`() {
         assertEquals("binky.support@maksforge.com", SUPPORT_EMAIL)
-        assertEquals("https://maksforge.github.io/binky-app/privacy-policy.html", PRIVACY_POLICY_URL)
+        assertEquals("https://maksforge.com/binky-app/privacy-policy.html", PRIVACY_POLICY_URL)
     }
 }

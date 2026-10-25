@@ -161,7 +161,7 @@ const val PLAY_PACKAGE = "binky.bunny.and.rabbit.tracker"
 const val PLAY_STORE_PACKAGE = "com.android.vending"
 
 /** The same page the Play listing links, so the two cannot drift. */
-const val PRIVACY_POLICY_URL = "https://maksforge.github.io/binky-app/privacy-policy.html"
+const val PRIVACY_POLICY_URL = "https://maksforge.com/binky-app/privacy-policy.html"
 
 /** The Play Store app's own scheme. */
 fun playMarketUri(): String = "market://details?id=$PLAY_PACKAGE"

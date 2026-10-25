@@ -54,13 +54,13 @@ for consistency rather than because those languages need it.
 
 | Field | Value |
 | --- | --- |
-| Privacy policy URL | `https://maksforge.github.io/binky-app/privacy-policy.html` |
+| Privacy policy URL | `https://maksforge.com/binky-app/privacy-policy.html` — switched in the Console on 2026-10-25; before that it was `https://maksforge.github.io/binky-app/privacy-policy.html`, which still redirects here |
 | App icon (512²) | [`art/play-icon-512.png`](../art/play-icon-512.png) |
 | Feature graphic (1024×500) | [`art/play-feature-graphic.png`](../art/play-feature-graphic.png) — **Play crops it to 16:9**, `object-fit: cover` on the search results card, so 68px of each side never shows. `make-feature-graphic.py` derives the layout from that and prints the measured margins; re-upload after any change to it |
 | Phone screenshots (1452×2582) | [`art/play-screenshots/`](../art/play-screenshots/) — **eight scenes × nine locales, light**, re-shot 2026-08-26. Upload in filename order: `1_home`, `2_weight`, `3_observations`, `4_timeline`, `5_care`, `6_medication-course`, `7_documents`, `8_backup`, each suffixed with its locale tag (`-en`, `-cs`, `-de`, `-es`, `-fr`, `-it`, `-pl`, `-pt-BR`, `-uk`) |
 | App category | Lifestyle |
 | Contact email | `binky.support@maksforge.com` — the per-app support address, set in Store settings, not the account-level developer email |
-| Website | `https://maksforge.github.io/binky-app/` — the Pages root 9e created, also in Store settings. The privacy-policy URL above is a page *under* it |
+| Website | `https://maksforge.com/binky-app/` — switched in the Console on 2026-10-25; before that it was `https://maksforge.github.io/binky-app/`, which still redirects here. The Pages root 9e created, also in Store settings. The privacy-policy URL above is a page *under* it |
 
 ✅ **The screenshots were re-shot on 2026-08-26** and photograph the app as 1.9.0 builds it — 9f's
 Home header, 10e's timeline and the Phase 7 light scheme included. **Eight per locale, not four**,
