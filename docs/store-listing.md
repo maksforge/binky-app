@@ -60,7 +60,7 @@ for consistency rather than because those languages need it.
 | Phone screenshots (1452×2582) | [`art/play-screenshots/`](../art/play-screenshots/) — **eight scenes × nine locales, light**, re-shot 2026-08-26. Upload in filename order: `1_home`, `2_weight`, `3_observations`, `4_timeline`, `5_care`, `6_medication-course`, `7_documents`, `8_backup`, each suffixed with its locale tag (`-en`, `-cs`, `-de`, `-es`, `-fr`, `-it`, `-pl`, `-pt-BR`, `-uk`) |
 | App category | Lifestyle |
 | Contact email | `binky.support@maksforge.com` — the per-app support address, set in Store settings, not the account-level developer email |
-| Website | `https://maksforge.com/binky-app/` — switched in the Console on 2026-10-25; before that it was `https://maksforge.github.io/binky-app/`, which still redirects here. The Pages root 9e created, also in Store settings. The privacy-policy URL above is a page *under* it |
+| Website | `https://maksforge.com/binky-app/` — the Pages root 9e created, also in Store settings. The privacy-policy URL above is a page *under* it. Switched in the Console on 2026-10-25; before that it was `https://srednimax.github.io/binky-app/`, which still forwards here. The `https://maksforge.github.io/binky-app/` this file gave before never reached the Console |
 
 ✅ **The screenshots were re-shot on 2026-08-26** and photograph the app as 1.9.0 builds it — 9f's
 Home header, 10e's timeline and the Phase 7 light scheme included. **Eight per locale, not four**,
